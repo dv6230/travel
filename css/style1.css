@@ -1,0 +1,39 @@
+.box1{
+    height: 600px;   
+    background-image: url(../img/1785.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+nav.navbar{
+    background-color: rgba(10, 10, 10, 0.9);    
+}
+
+p.line_height{
+    line-height: 2.3;
+}
+
+footer{
+    background-color: rgb(72, 109, 77)
+}
+
+
+li{
+    list-style: none;
+    list-style-type: none;
+}
+
+.n-p{
+    padding: 0px;    
+}
+
+.n-p>li>a{
+    color: rgb(247, 247, 247);    
+}
+
+.login-panel{
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 150px;
+}
+
