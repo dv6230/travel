@@ -44,7 +44,7 @@
                                 <input type="password" name="pwd" autocomplete="off" class="w-100">
                             </div>
                             <div class="text-danger">'.$error.'</div>
-                            <a href="#" class="float-right">註冊帳號</a>                
+                            <a href="create_account.php" class="float-right">註冊帳號</a>                
                             
                             <input type="submit" class="w-100 p-1 mt-4 btn btn-primary ">
                         </form>
