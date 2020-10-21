@@ -50,5 +50,8 @@ li{
     .login-panel{
         width: 100%;
     }
-      
+    .time_show{
+        display:none;
+        color: orange;
+    }
 }
