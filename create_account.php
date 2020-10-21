@@ -14,33 +14,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>註冊帳號</title>
+    <style>
+        .b {
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="col-md-6">
+    <div class="container b">
+        <div class="row d-flex align-items-center h-100">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInput1">帳號</label>
+                        <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInput2">密碼</label>
+                        <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
+                    </div>
 
-        </div>
-        <div class="col-md-6">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <button type="submit" class="btn btn-primary w-50 justify-content-center">註冊</button>
+
+
+                </form>
+            </div>
         </div>
     </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
