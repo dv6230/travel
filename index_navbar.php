@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="http://localhost/travel/index.php">
-            <img src="http://localhost/travel/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <a class="navbar-brand text-light" href="index.php">
+            <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
             Forest</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-light" href="http://localhost/travel/index.php">首頁<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light" href="index.php">首頁<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#">產品介紹</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="http://localhost/travel/news.php">最新消息</a>
+                    <a class="nav-link text-light" href="news.php">最新消息</a>
                 </li>
                 <?php
 
@@ -27,9 +27,9 @@
                 會員中心
               </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="http://localhost/travel/login_profile.php">會員中心</a>
+                                    <a class="dropdown-item" href="login_profile.php">會員中心</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="http://localhost/travel/logout.php">登出</a>
+                                    <a class="dropdown-item text-danger" href="logout.php">登出</a>
                                 </div>
                             </li>';
                 if (isset($_SESSION['id'])) {
