@@ -27,7 +27,7 @@
         <div class="row d-flex align-items-center h-100">
             <div class="col-md-7"></div>
             <div class="col-md-5">
-                <form class="flex-column">
+                <form class="d-flex flex-column">
                     <div class="col">
                         <div class="form-group">
                             <label for="exampleInput1">帳號</label>
