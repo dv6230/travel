@@ -35,7 +35,8 @@ KEY `account` (`account`)");
 
 create_table('article', " `id` INT NOT NULL AUTO_INCREMENT , 
 `title` VARCHAR(125) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
-`content` VARCHAR(1500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+`content`  MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+`theme` VARCHAR(24) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 `insert_time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)");
 
 //預設 管理者帳號密碼 
