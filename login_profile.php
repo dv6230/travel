@@ -50,24 +50,24 @@
             $tp = $_GET['type'];
             switch ($tp) {
               case "center":
-                require_once 'profile/profile_center.php';
+                require 'profile/profile_center.php';
                 break;
               case "order":
-                require_once 'profile/profile_order.php';
+                require 'profile/profile_order.php';
                 break;
               case "histroy":
-                require_once 'profile/profile_histroy.php';;
+                require 'profile/profile_histroy.php';;
                 break;
               case "else":
                 if ($auth > 0) {
-                  require_once 'profile/profile_else.php';
+                  require 'profile/profile_else.php';                  
                 }
                 break;
               case "person":
-                require_once 'profile/profile_person.php';
+                require 'profile/profile_person.php';
                 break;
               default:
-                require_once 'profile_center.php';
+                require 'profile_center.php';
                 break;
             }
           } else {
