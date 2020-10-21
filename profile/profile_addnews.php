@@ -24,7 +24,8 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
     $conn = $conn->prepare($sql);
     $conn->execute([$title, $content,$theme]);
     $conn = null;
-    header("Location:login_profile.php?type=else");
+    $srv = $_SERVER['SERVER_NAME'];
+    header("Location:../login_profile.php?type=else");
 }
 
 ?>
