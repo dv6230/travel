@@ -32,9 +32,9 @@
    
     $str = '<div class="container-fluid">
                 <div class="d-flex justify-content-center h-100">
-                    <div class="col-md-3 align-self-center p-5 login-panel">
+                    <div class="align-self-center p-5 login-panel">
                         <h2>帳號登入</h2>
-                        <form action="login.php" method="POST" class="">
+                        <form action="login.php" method="POST" class="p-2 login_form">
                             <div>
                                 <label for="acnt" class="mb-0 mt-2">帳號</label>
                                 <input type="text" name="acnt" autocomplete="off" class="w-100">
