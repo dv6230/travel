@@ -27,9 +27,9 @@
                 會員中心
               </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/login_profile.php">會員中心</a>
+                                    <a class="dropdown-item" href="http://' . $_SERVER['SERVER_NAME']  . '/travel/login_profile.php">會員中心</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/logout.php">登出</a>
+                                    <a class="dropdown-item text-danger" href="http://' . $_SERVER['SERVER_NAME']  . '/travel/logout.php">登出</a>
                                 </div>
                             </li>';
                 if (isset($_SESSION['id'])) {
