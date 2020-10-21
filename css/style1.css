@@ -37,3 +37,7 @@ li{
     margin-top: 150px;
 }
 
+.login_form{
+    width: 300px;
+    color: orange;
+}
