@@ -8,7 +8,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     $usr = $conn->real_escape_string($_POST['acnt']);
     $pwd = $conn->real_escape_string($_POST['pwd']);
 
-    $sql = "SELECT id , password , name , auth FROM user WHERE account = $usr";
+    $sql = "SELECT id , password , name , auth FROM user WHERE account = '$usr' ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
