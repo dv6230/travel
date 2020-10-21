@@ -32,7 +32,7 @@
    
     $str = '<div class="container-fluid">
                 <div class="d-flex justify-content-center h-100">
-                    <div class="align-self-center p-5 login-panel">
+                    <div class="align-self-center login-panel">
                         <h2>帳號登入</h2>
                         <form action="login.php" method="POST" class="p-2 login_form">
                             <div>
