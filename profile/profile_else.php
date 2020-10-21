@@ -2,7 +2,6 @@
 if (!($auth > 0)) {
     header("Location:profile_center.php");
 }
-
 ?>
 
 <div class="card m-2">
