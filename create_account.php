@@ -27,17 +27,18 @@
         <div class="row d-flex align-items-center h-100">
             <div class="col-md-7"></div>
             <div class="col-md-5">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInput1">帳號</label>
-                        <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account">
+                <form class="flex-column">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInput1">帳號</label>
+                            <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInput2">密碼</label>
+                            <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInput2">密碼</label>
-                        <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-50 justify-content-center">註冊</button>
+                    <button type="submit" class="btn btn-primary w-50 m-auto">註冊</button>
 
 
                 </form>
