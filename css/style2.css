@@ -5,3 +5,17 @@ img {
 nav.navbar {
     background-color: rgba(10, 10, 10, 0.9);
 }
+
+.t_load{
+    display: none;
+}
+
+@media (max-width: 740px){
+    .time_show{
+        display:none;
+        color: orange;
+    }
+    .t_load{
+        display: block;
+    }
+}
