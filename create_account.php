@@ -12,24 +12,17 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     if ($result->num_rows > 0) {
         $name_error = true;
     } else {
-        adduser($conn, $user_name, $user_password);
+        $sql = "INSERT INTO user (account,password) VALUES ($user_account,$user_password)";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+        header("Location:index.php");
+        echo '1234564878';
     }
 }
-
-
-
-function adduser($conn, $user_account, $user_password)
-{
-    $sql = "INSERT INTO user (account,password) VALUES ($user_account,$user_password)";
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    $conn->close();
-    header("Location:index.php");
-}
-
 
 ?>
 
@@ -69,11 +62,24 @@ function adduser($conn, $user_account, $user_password)
             height: 100%;
             margin-left: auto;
             margin-right: auto;
+            object-fit: cover;
         }
 
-        @media (max-width: 992px) {
-            .hdi{
+        @media (max-width: 768px) {
+            .hdi {
                 visibility: hidden;
+                height: 0px;
+                margin: 0px;
+            }
+
+            .panel-shadow {
+                border: none;
+                box-shadow: 0px 0px 0px 0px;
+            }
+
+            .rwd_padding {
+                padding: 50px;
+                margin: 0px;
             }
         }
     </style>
@@ -81,13 +87,13 @@ function adduser($conn, $user_account, $user_password)
 
 <body>
 
-    <div class="container b">
+    <div class="container-fluid b p-2">
         <div class="row d-flex align-items-center h-100">
-            <div class="row panel-shadow bg-light p-0">
+            <div class="row panel-shadow bg-light p-0 rwd_padding">
                 <div class="col-md-7 m-0 p-0 hdi">
                     <img src="img/p1.jpg" alt="" class="m-0 p-0">
                 </div>
-                <div class="col-md-5 p-2">
+                <div class="col-md-5">
                     <form class="d-flex flex-column pl-3 pr-3 mt-2 mb-3">
                         <div>
                             <a href="javascript:history.back()" class="float-right m-2 d-inline">返回</a>
@@ -95,6 +101,7 @@ function adduser($conn, $user_account, $user_password)
 
                         <div class="col">
                             <div class="form-group">
+                                <h3>註冊帳號</h3>
                                 <label for="exampleInput1">帳號</label>
                                 <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account" required>
                             </div>
