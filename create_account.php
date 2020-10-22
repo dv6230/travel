@@ -3,13 +3,17 @@
 $name_error = false;
 
 if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
-
+    $user_name = $_POST['acnt'];
+    $user_password = $_POST['pwd'];
     require_once 'mydatabase.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT account FROM user WHERE account = $user_name";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $name_error = true;
+    }
+    else{
+        adduser($conn,$user_name,$user_password);
     }
 }
 
