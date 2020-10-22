@@ -18,6 +18,11 @@
         .b {
             height: 100vh;
         }
+        .bg-7{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(img/p2.jpg);
+        }
     </style>
 </head>
 
@@ -25,7 +30,8 @@
 
     <div class="container b">
         <div class="row d-flex align-items-center h-100">
-            <div class="col-md-7"></div>
+            <div class="col-md-7 bg-7 h-100">
+            </div>
             <div class="col-md-5">
                 <form class="d-flex flex-column">
                     <div class="col">
