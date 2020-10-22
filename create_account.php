@@ -32,7 +32,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>註冊帳號</title>
     <style>
         body {
@@ -130,12 +130,11 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     </div>
 
     <script>
-        
         document.getElementById("sub").addEventListener("click", function(event) {
             event.preventDefault();
             var ps1 = document.getElementById("pass1").value;
             var ps2 = document.getElementById("pass2").value;
-            if( ps1 === ps2){
+            if (ps1 === ps2) {
                 console.log('yes');
             }
         });
