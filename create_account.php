@@ -21,8 +21,8 @@
 
         
         .bg-7 {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+            padding: 30px;
         }
         
 
