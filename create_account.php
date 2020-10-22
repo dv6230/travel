@@ -22,7 +22,6 @@
         
         .bg-7 {
             box-shadow: 5px 10px 18px #888888;
-            padding: 30px;
         }
         
 
@@ -38,7 +37,7 @@
 
     <div class="container b">
         <div class="row d-flex align-items-center h-100">
-            <div class="border row bg-7 ">
+            <div class="border row bg-7">
                 <div class="col-md-7">
                     <img src="img/p1.jpg" alt="">
                 </div>
