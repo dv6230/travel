@@ -18,10 +18,17 @@
         .b {
             height: 100vh;
         }
-        .bg-7{
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-image: url(img/p2.jpg);
+
+        
+        .bg-7 {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+
+        img {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -30,29 +37,33 @@
 
     <div class="container b">
         <div class="row d-flex align-items-center h-100">
-            <div class="col-md-7 bg-7 h-100">
-            </div>
-            <div class="col-md-5">
-                <form class="d-flex flex-column">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleInput1">帳號</label>
-                            <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account">
+            <div class="border row bg-7 ">
+                <div class="col-md-7">
+                    <img src="img/p1.jpg" alt="">
+                </div>
+                <div class="col-md-5">
+                    <form class="d-flex flex-column">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInput1">帳號</label>
+                                <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInput2">密碼</label>
+                                <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInput3">確認密碼</label>
+                                <input type="password" class="form-control" id="exampleInput13" placeholder="Password">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInput2">密碼</label>
-                            <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInput3">確認密碼</label>
-                            <input type="password" class="form-control"  id="exampleInput13" placeholder="Password">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-50 m-auto">註冊</button>
+                        <button type="submit" class="btn btn-primary w-50 m-auto">註冊</button>
 
 
-                </form>
+                    </form>
+                </div>
             </div>
+
         </div>
     </div>
 
