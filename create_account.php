@@ -15,7 +15,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
         $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
         if ($conn->query($sql) === TRUE) {
             header("Location:");
-        } 
+        }
         $conn->close();
     }
 }
@@ -103,12 +103,12 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                                 <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInput2">密碼</label>
-                                <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password" required>
+                                <label for="pass1">密碼</label>
+                                <input type="password" class="form-control" name="pwd" id="pass1" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInput3">再次輸入密碼</label>
-                                <input type="password" class="form-control" id="exampleInput13" placeholder="Password" required>
+                                <label for="pass2">再次輸入密碼</label>
+                                <input type="password" class="form-control" id="pass2" placeholder="Password" required>
                             </div>
                         </div>
 
@@ -119,7 +119,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                             echo '<br>';
                         }
                         ?>
-                        <button type="submit" class="btn btn-primary w-50 m-auto">註冊</button>
+                        <button type="submit" class="btn btn-primary w-50 m-auto" id="sub">註冊</button>
 
 
                     </form>
@@ -129,7 +129,17 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
         </div>
     </div>
 
-
+    <script>
+        
+        document.getElementById("sub").addEventListener("click", function(event) {
+            event.preventDefault();
+            var ps1 = document.getElementById("pass1").value;
+            var ps2 = document.getElementById("pass2").value;
+            if( ps1 === ps2){
+                console.log('yes');
+            }
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
