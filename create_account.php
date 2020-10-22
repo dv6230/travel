@@ -91,7 +91,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                     <img src="img/p1.jpg" alt="" class="m-0 p-0">
                 </div>
                 <div class="col-md-5">
-                    <form class="d-flex flex-column pl-3 pr-3 mt-2 mb-3" method="POST" action="create_account.php">
+                    <form id="form1" class="d-flex flex-column pl-3 pr-3 mt-2 mb-3" method="POST" action="create_account.php">
                         <div>
                             <a href="javascript:history.back()" class="float-right m-2 d-inline">返回</a>
                         </div>
@@ -110,6 +110,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                                 <label for="pass2">再次輸入密碼</label>
                                 <input type="password" class="form-control" id="pass2" placeholder="Password" required>
                             </div>
+                            <div class="notsame"></div>
                         </div>
 
                         <?php
@@ -135,8 +136,20 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             var ps1 = document.getElementById("pass1").value;
             var ps2 = document.getElementById("pass2").value;
             if (ps1 === ps2) {
-                console.log('yes');
+                $.ajax({
+                    type: 'POST',
+                    url: 'create_account.php',
+                    data: $("#form1").serialize(),
+                    success: function(response) {
+
+                    }
+                });
             }
+            else{
+                var str = document.getElementById("notsame");
+                str.textContent = "1234";
+            }
+
         });
     </script>
 
