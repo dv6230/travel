@@ -87,7 +87,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
 <body>
 
-    <div class="container-fluid b p-2">
+    <div class="container b p-2">
         <div class="row d-flex align-items-center h-100">
             <div class="row panel-shadow bg-light p-0 rwd_padding">
                 <div class="col-md-7 m-0 p-0 hdi">
