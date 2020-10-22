@@ -12,15 +12,11 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     if ($result->num_rows > 0) {
         $name_error = true;
     } else {
-        $sql = "INSERT INTO user (account,password) VALUES ($user_account,$user_password)";
+        $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
         if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+            header("Location:");
+        } 
         $conn->close();
-        header("Location:index.php");
-        echo '1234564878';
     }
 }
 
@@ -40,10 +36,11 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     <title>註冊帳號</title>
     <style>
         body {
-
+            /*
             background: rgb(174, 238, 208);
             background: radial-gradient(circle, rgba(174, 238, 208, 0.8354692218684349) 0%, rgba(73, 119, 255, 0) 100%);
-
+            */
+            background: rgb(red, green, blue)
         }
 
         .b {
@@ -94,7 +91,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                     <img src="img/p1.jpg" alt="" class="m-0 p-0">
                 </div>
                 <div class="col-md-5">
-                    <form class="d-flex flex-column pl-3 pr-3 mt-2 mb-3">
+                    <form class="d-flex flex-column pl-3 pr-3 mt-2 mb-3" method="POST" action="create_account.php">
                         <div>
                             <a href="javascript:history.back()" class="float-right m-2 d-inline">返回</a>
                         </div>
