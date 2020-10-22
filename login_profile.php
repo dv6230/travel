@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php session_start();
+
+if (!isset($_SESSION['id'])) header("Location:login_page.php");
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -60,7 +64,7 @@
                 break;
               case "else":
                 if ($auth > 0) {
-                  require 'profile/profile_else.php';                  
+                  require 'profile/profile_else.php';
                 }
                 break;
               case "person":
