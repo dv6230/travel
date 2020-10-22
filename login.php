@@ -4,11 +4,11 @@ require_once 'mydatabase.php';
 if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
     $conn = new mysqli($servername, $username, $password, $dbname);
-    
+
     $usr = $conn->real_escape_string($_POST['acnt']);
     $pwd = $conn->real_escape_string($_POST['pwd']);
 
-    $sql = "SELECT id , password , name , auth FROM user WHERE account = '$usr' ";
+    $sql = "SELECT id , password , auth FROM user WHERE account = '$usr' ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -20,12 +20,13 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                 $_SESSION['auth'] = $row['auth'];
                 header('Location:login_page.php');
             } else {
-                $_SESSION['wrong'] = '<p class="w-100 text-danger">帳號或密碼輸入錯誤</p>';
+                $_SESSION['wrong'] = '帳號或密碼輸入錯誤';
                 header('Location:login_page.php');
             }
         }
     } else {
-        $_SESSION['wrong'] = '帳號或密碼輸入錯誤';
+        $_SESSION['wrong'] = "帳號或密碼輸入錯誤";
+        
         header('Location:login_page.php');
     }
     $conn->close();
