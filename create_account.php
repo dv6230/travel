@@ -37,6 +37,10 @@
                             <label for="exampleInput2">密碼</label>
                             <input type="password" class="form-control" name="pwd" id="exampleInput12" placeholder="Password">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInput3">確認密碼</label>
+                            <input type="password" class="form-control"  id="exampleInput13" placeholder="Password">
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-50 m-auto">註冊</button>
 
