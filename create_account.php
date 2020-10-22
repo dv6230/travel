@@ -110,7 +110,8 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                                 <label for="pass2">再次輸入密碼</label>
                                 <input type="password" class="form-control" id="pass2" placeholder="Password" required>
                             </div>
-                            <div class="notsame"></div>
+                            <div id="notsame">
+                            </div>
                         </div>
 
                         <?php
@@ -144,10 +145,9 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
                     }
                 });
-            }
-            else{
-                var str = document.getElementById("notsame");
-                str.textContent = "1234";
+            } else {
+                var str = document.getElementById("notsame").innerHTML = "密碼輸入錯誤";
+                str.innerHTML = "1234";
             }
 
         });
