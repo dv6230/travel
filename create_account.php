@@ -40,7 +40,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             background: rgb(174, 238, 208);
             background: radial-gradient(circle, rgba(174, 238, 208, 0.8354692218684349) 0%, rgba(73, 119, 255, 0) 100%);
             */
-            background: rgb(red, green, blue)
+            background: #b3e0ff;
         }
 
         .b {
