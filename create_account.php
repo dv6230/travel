@@ -11,9 +11,8 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $name_error = true;
-    }
-    else{
-        adduser($conn,$user_name,$user_password);
+    } else {
+        adduser($conn, $user_name, $user_password);
     }
 }
 
@@ -28,6 +27,7 @@ function adduser($conn, $user_account, $user_password)
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
+    header("Location:index.php");
 }
 
 
@@ -70,6 +70,12 @@ function adduser($conn, $user_account, $user_password)
             margin-left: auto;
             margin-right: auto;
         }
+
+        @media (max-width: 992px) {
+            .hdi{
+                visibility: hidden;
+            }
+        }
     </style>
 </head>
 
@@ -78,11 +84,11 @@ function adduser($conn, $user_account, $user_password)
     <div class="container b">
         <div class="row d-flex align-items-center h-100">
             <div class="row panel-shadow bg-light p-0">
-                <div class="col-md-7 m-0 p-0">
+                <div class="col-md-7 m-0 p-0 hdi">
                     <img src="img/p1.jpg" alt="" class="m-0 p-0">
                 </div>
-                <div class="col-md-5 ">
-                    <form class="d-flex flex-column pl-3 pr-3 mt-2 ">
+                <div class="col-md-5 p-2">
+                    <form class="d-flex flex-column pl-3 pr-3 mt-2 mb-3">
                         <div>
                             <a href="javascript:history.back()" class="float-right m-2 d-inline">返回</a>
                         </div>
