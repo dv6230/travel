@@ -12,7 +12,7 @@
                     <a class="nav-link text-light" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/index.php">首頁<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">產品介紹</a>
+                    <a class="nav-link text-light" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/show_product.php">產品介紹</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/news.php">最新消息</a>
