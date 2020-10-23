@@ -29,13 +29,17 @@
         .card-h {
             height: 240px;
         }
+
+        .fit-body {
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container h-100">
-        <div class="w-100 d-flex justify-content-center bg-primary align-items-center">
-            <div class="card p-0 m-0 border-0" style="width: 18rem;">
+    <div class="container fit-body ">
+        <div class="w-100 d-flex justify-content-center align-items-center fit-body">
+            <div class="card p-0 m-0 border-0 " style="width: 18rem;">
                 <h2 class="text-center mt-5">註冊成功</h2>
                 <div class="card-img-top m-0 card-h  d-flex justify-content-center align-items-center">
 
@@ -43,7 +47,7 @@
 
                 </div>
                 <div class="card-body w-100">
-                    <a href="#" class="btn btn-primary w-100 mt-3">前往登入</a>
+                    <a href="login_page.php" class="btn btn-primary w-100 mt-3">前往登入</a>
                 </div>
             </div>
         </div>
