@@ -39,6 +39,6 @@ create_table('article', " `id` INT NOT NULL AUTO_INCREMENT ,
 `insert_time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)");
 
 //預設 管理者帳號密碼 
-$result = $connection->query("INSERT INTO `user` (`id`, `account`, `password`, `name`, `auth`) VALUES (NULL, 'root', 'root', '管理者', '2');");
+$result = $connection->query("INSERT IGNORE INTO `user` (`id`, `account`, `password`, `name`, `auth`) VALUES (NULL, 'root', 'root', '管理者', '2');");
 
 echo $str;
