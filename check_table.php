@@ -28,7 +28,6 @@ PRIMARY KEY (`id`)");
 create_table('user', "`id` int(11) NOT NULL AUTO_INCREMENT,
 `account` varchar(20) NOT NULL,
 `password` varchar(256) NOT NULL,
-`name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 `auth` int(11) NOT NULL DEFAULT 0,
 PRIMARY KEY (`id`),
 KEY `account` (`account`)");
