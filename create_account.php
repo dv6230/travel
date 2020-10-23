@@ -14,7 +14,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     } else {
         $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
         if ($conn->query($sql) === TRUE) {
-            header("Location:");
+            header("Location:"); //註冊成功網頁
         }
         $conn->close();
     }
@@ -32,7 +32,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>註冊帳號</title>
     <style>
         body {
@@ -91,7 +91,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                     <img src="img/p1.jpg" alt="" class="m-0 p-0">
                 </div>
                 <div class="col-md-5">
-                    <form id="form1" class="d-flex flex-column pl-3 pr-3 mt-2 mb-3" method="POST" action="create_account.php">
+                    <form id="form1" name="form1" class="d-flex flex-column pl-3 pr-3 mt-2 mb-3" method="POST" action="create_account.php">
                         <div>
                             <a href="javascript:history.back()" class="float-right m-2 d-inline">返回</a>
                         </div>
@@ -99,8 +99,8 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                         <div class="col">
                             <div class="form-group">
                                 <h3>註冊帳號</h3>
-                                <label for="exampleInput1">帳號</label>
-                                <input type="text" class="form-control" name="acnt" id="exampleInput1" placeholder="Account" required>
+                                <label for="useraccount">帳號</label>
+                                <input type="text" class="form-control" name="acnt" id="useraccount" placeholder="Account" required>
                             </div>
                             <div class="form-group">
                                 <label for="pass1">密碼</label>
@@ -137,17 +137,11 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             var ps1 = document.getElementById("pass1").value;
             var ps2 = document.getElementById("pass2").value;
             if (ps1 === ps2) {
-                $.ajax({
-                    type: 'POST',
-                    url: 'create_account.php',
-                    data: $("#form1").serialize(),
-                    success: function(response) {
 
-                    }
-                });
+                 document.form1.submit();
+
             } else {
                 var str = document.getElementById("notsame").innerHTML = "密碼輸入錯誤";
-                str.innerHTML = "1234";
             }
 
         });
@@ -155,7 +149,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
