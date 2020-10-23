@@ -14,7 +14,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     } else {
         $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
         if ($conn->query($sql) === TRUE) {
-            header("Location:"); //註冊成功網頁
+            header("Location:create_success.php"); //註冊成功網頁
         }
         $conn->close();
     }
