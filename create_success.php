@@ -11,7 +11,12 @@
 
     <title>註冊成功</title>
     <style>
+        html {
+            height: 100%;
+        }
+
         body {
+            height: 100%;
             background: rgb(33, 24, 185);
             background: linear-gradient(90deg, rgba(33, 24, 185, 0.8438725832129726) 0%, rgba(0, 212, 255, 1) 100%);
         }
@@ -28,18 +33,22 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="card p-0 m-0 border-0" style="width: 18rem;">
-            <h2 class="text-center mt-5">註冊成功</h2>
-            <div class="card-img-top m-0 card-h bg-primary d-flex justify-content-center align-items-center">
+    <div class="container h-100">
+        <div class="w-100 d-flex justify-content-center bg-primary align-items-center">
+            <div class="card p-0 m-0 border-0" style="width: 18rem;">
+                <h2 class="text-center mt-5">註冊成功</h2>
+                <div class="card-img-top m-0 card-h  d-flex justify-content-center align-items-center">
 
-                <img src="img/check.png" class="" width="96px" height="96px" alt="...">
+                    <img src="img/check.png" class="" width="96px" height="96px" alt="...">
 
-            </div>
-            <div class="card-body">
-                <a href="#" class="btn btn-primary w-100 mt-3">前往登入</a>
+                </div>
+                <div class="card-body w-100">
+                    <a href="#" class="btn btn-primary w-100 mt-3">前往登入</a>
+                </div>
             </div>
         </div>
+
+
     </div>
 
     <!-- Optional JavaScript -->
