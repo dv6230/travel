@@ -1,7 +1,7 @@
 <?php
 
 $name_error = false;
-
+$create_success = false;
 if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     $user_name = $_POST['acnt'];
     $user_password = $_POST['pwd'];
@@ -14,7 +14,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     } else {
         $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
         if ($conn->query($sql) === TRUE) {
-            header("Location:create_success.php"); //註冊成功網頁
+            $create_success = true;
         }
         $conn->close();
     }
@@ -122,14 +122,32 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                         }
                         ?>
                         <button type="submit" class="btn btn-primary w-50 m-auto" id="sub">註冊</button>
-
-
                     </form>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered card-size">
+            <div class="modal-content">
+                <div class="modal-header border-0 d-flex align-items-center mt-4">
+                    <h2 class="text-center w-100">註冊成功</h2>
+                </div>
+                <div class="modal-body d-flex justify-content-center m-5">
+                    <img src="img/check.png" class="" width="96px" height="96px" alt="...">
+                </div>
+                <div class="modal-footer border-0">
+                    <a href="login_page.php" class="btn btn-primary w-100 mt-3">前往登入</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <script>
         document.getElementById("sub").addEventListener("click", function(event) {
@@ -138,13 +156,19 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             var ps2 = document.getElementById("pass2").value;
             if (ps1 === ps2) {
 
-                 document.form1.submit();
+                document.form1.submit();
 
             } else {
                 var str = document.getElementById("notsame").innerHTML = "密碼輸入錯誤";
             }
-
         });
+        <?php
+        if ($create_success) {
+            echo " $(document).ready(function() {
+            $('#myModal').modal('show');
+        });";
+        }
+        ?>
     </script>
 
     <!-- Optional JavaScript -->
