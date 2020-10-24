@@ -24,14 +24,14 @@
             <h1>產品列表</h1>
         </div>
         <div class='row'>
-            <div class="describe col-md-5">
+            <div class="describe col-md-6">
                 <h2>阿勒格尼國家森林</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sequi molestiae quo alias harum! Reprehenderit, nobis dolor atque, quos, vel modi inventore voluptatum repellat est facilis nihil sequi quam consequatur.</p>
                 
                 <button class="btn btn-outline-primary d-flex align-items-end">1234</button>
                 
             </div>
-            <img class="col-md-7 m-0 p-0" height="360px" src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="">
+            <img class="col-md-6 m-0 p-0" height="360px" src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="">
         </div>
     </div>
 
