@@ -2,21 +2,24 @@
 
 $name_error = false;
 $create_success = false;
-if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
+if (isset($_POST['acnt']) && isset($_POST['pwd']) && (strlen($_POST['acnt']) > 0) && (strlen($_POST['pwd']) > 0)) {
     $user_name = $_POST['acnt'];
     $user_password = $_POST['pwd'];
     require_once 'mydatabase.php';
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT account FROM user WHERE account = $user_name";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        $name_error = true;
-    } else {
-        $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
-        if ($conn->query($sql) === TRUE) {
-            $create_success = true;
+    try {
+        if ($result->num_rows > 0) {
+            $name_error = true;
+        } else {
+            $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
+            if ($conn->query($sql) === TRUE) {
+                $create_success = true;
+            }
+            $conn->close();
         }
-        $conn->close();
+    } catch (Exception $e) {
     }
 }
 
@@ -32,7 +35,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>註冊帳號</title>
     <style>
         body {
@@ -54,7 +57,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
         }
 
 
-        img {
+        .hdi img {
             width: 100%;
             height: 100%;
             margin-left: auto;
@@ -79,6 +82,11 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                 margin: 0px;
             }
         }
+
+        .card-size{
+            width: 300px;
+        }
+
     </style>
 </head>
 
@@ -140,7 +148,6 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                 </div>
                 <div class="modal-footer border-0">
                     <a href="login_page.php" class="btn btn-primary w-100 mt-3">前往登入</a>
-
                 </div>
             </div>
         </div>
@@ -166,14 +173,14 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
         if ($create_success) {
             echo " $(document).ready(function() {
             $('#myModal').modal('show');
-        });";
+            });";
         }
         ?>
     </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
