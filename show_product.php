@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="css/style3.css">
-    <title>產品列表</title>
+    <title>旅遊列表</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <img src="img/show_product_1.jpg" alt="" class="head_img">
     <div class="container mb-5">
         <div class="p-5 m-2">
-            <h1>產品列表</h1>
+            <h1>旅遊列表</h1>
         </div>
         <div class='row'>
             <div class="describe col-md-6">
