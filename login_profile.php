@@ -53,6 +53,7 @@ require 'tools/path_classify.php';
           $path = new backstage();
           if (isset($_GET['type'])) {
             $tp = $_GET['type'];
+            $path->getbackstage($tp, $auth);
             $website = $path->getbackstage($tp, $auth);
             require $website;
           } else {
