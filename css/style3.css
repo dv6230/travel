@@ -1,0 +1,14 @@
+.head_img{
+    height: 480px;
+    width :100%;
+    object-fit: cover;    
+}
+
+.describe{
+    position:relative;
+    height:360px;
+}
+.describe .btn{
+    position:absolute;
+    bottom: 10px;
+}
