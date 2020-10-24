@@ -1,7 +1,7 @@
 <?php session_start();
 
 if (!isset($_SESSION['id'])) header("Location:login_page.php");
-
+require 'tools/path_classify.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,7 +32,7 @@ if (!isset($_SESSION['id'])) header("Location:login_page.php");
         <ul class="list-group">
           <li class="list-group-item"><a href="login_profile.php?type=center" class="">會員中心</a></li>
           <li class="list-group-item"><a href="login_profile.php?type=order" class="">訂單資料</a></li>
-          <li class="list-group-item"><a href="login_profile.php?type=histroy" class="">歷史紀錄</a></li>
+          <li class="list-group-item"><a href="login_profile.php?type=history" class="">歷史紀錄</a></li>
           <?php
           //權限大於0可以操作
           if (isset($_SESSION['auth'])) {
@@ -50,31 +50,11 @@ if (!isset($_SESSION['id'])) header("Location:login_page.php");
       <div class="col-md-9">
         <div class="content w-100">
           <?php
-          
+          $path = new backstage();
           if (isset($_GET['type'])) {
             $tp = $_GET['type'];
-            switch ($tp) {
-              case "center":
-                require 'profile/profile_center.php';
-                break;
-              case "order":
-                require 'profile/profile_order.php';
-                break;
-              case "histroy":
-                require 'profile/profile_histroy.php';;
-                break;
-              case "else":
-                if ($auth > 0) {
-                  require 'profile/profile_else.php';
-                }
-                break;
-              case "person":
-                require 'profile/profile_person.php';
-                break;
-              default:
-                require 'profile_center.php';
-                break;
-            }
+            $website = $path->getbackstage($tp, $auth);
+            require $website;
           } else {
             header("Location:login_profile.php?type=center");
           }
