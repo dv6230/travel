@@ -50,6 +50,7 @@ if (!isset($_SESSION['id'])) header("Location:login_page.php");
       <div class="col-md-9">
         <div class="content w-100">
           <?php
+          
           if (isset($_GET['type'])) {
             $tp = $_GET['type'];
             switch ($tp) {
