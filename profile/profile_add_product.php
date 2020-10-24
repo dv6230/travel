@@ -23,20 +23,76 @@ include '../mydatabase.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>新增旅遊路徑</title>
+    <style>
+        nav.navbar {
+            background-color: rgba(10, 10, 10, 0.9);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <?php include '../index_navbar.php'; ?>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="container d-flex justify-content-center ">
+
+        <!-- Material form login -->
+        <div class="card mt-5 col-md-8">
+            <h2 class="card-header info-color white-text text-center py-4 m-0 p-0 success-color">
+                景點登入
+            </h2>
+            <!--Card content-->
+            <div class="card-body px-lg-5 pt-0">
+                <!-- Form -->
+                <form class="text-center" style="color:#33b5e5;" action="#!">
+                    <!-- Email -->
+                    <div class="md-form">
+                        <input type="email" id="materialLoginFormEmail" class="form-control ">
+                        <label for="materialLoginFormEmail">標題</label>
+                    </div>
+                    <!-- TextArea -->
+                    <div class="form-group purple-border ">
+                        <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea4" rows="9 "></textarea>
+                    </div>
+                    <!-- Drag and drop file upload -->
+                    <div class="file-upload-wrapper">
+                        <label for="input-file-now" class="text-dark">上傳圖片</label>
+                        <br>
+                        <input type="file" id="input-file-now" class="file-upload " />
+                    </div>
+                    <!-- Sign in button -->
+                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" 
+                    type="submit">上傳</button>
+                </form>
+                <!-- Form -->
+            </div>
+        </div>
+        <!-- Material form login -->
+
+    </div>
+
+    <script>
+        $('.file-upload').file_upload();
+    </script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
 
 </html>
