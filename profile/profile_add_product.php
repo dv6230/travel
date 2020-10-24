@@ -11,7 +11,7 @@ if (!($auth > 0)) {
     header("Location:profile_center.php");
 }
 
-include 'mydatabase.php';
+include '../mydatabase.php';
 
 ?>
 
