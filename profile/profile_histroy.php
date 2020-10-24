@@ -61,12 +61,12 @@ $conn = null;
     <ul class="pagination d-flex justify-content-end d-block">
         <?php
         if ($pages > 0) {
-            echo '<li class="page-item"><a class="page-link" href="login_profile.php?type=histroy&page=' . ($page_num - 1) . '">上一頁</a></li>';
+            echo '<li class="page-item"><a class="page-link" href="login_profile.php?type=history&page=' . ($page_num - 1) . '">上一頁</a></li>';
         }
         ?>
 
         <?php
-        $str = 'login_profile.php?type=histroy&page=';
+        $str = 'login_profile.php?type=history&page=';
         /* if ($pages > 5) {
             echo '<li class="page-item"><a class="page-link" href="' . $str .'1">1</a></li>';
             for ($i = $page_num+1; $i < $pages; $i++) {
@@ -85,7 +85,7 @@ $conn = null;
 
         <?php
         if ($pages > 0) {
-            echo '<li class="page-item"><a class="page-link" href="login_profile.php?type=histroy&page=' . ($page_num + 1) . '">下一頁</a></li>';
+            echo '<li class="page-item"><a class="page-link" href="login_profile.php?type=history&page=' . ($page_num + 1) . '">下一頁</a></li>';
         }
         ?>
 
