@@ -1,4 +1,5 @@
 <?php
+
 class count_page
 {
   protected $servername = "localhost";
@@ -9,7 +10,7 @@ class count_page
   function pagecount($table_name, $per)
   {
 
-    $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username,$this->password);
+    $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->query("SELECT COUNT(*) AS cnt FROM `$table_name` ");
     $count = 0;
