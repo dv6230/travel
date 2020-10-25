@@ -18,9 +18,6 @@ if (!isset($_SESSION['decide'])) {
     $_SESSION['decide'] = 0;
 }
 
-echo  $_SESSION['decide'] . '/' .  $_POST['decide'];
-
-
 /*
 防止使用者按下 重新整理 表單送出上一筆資料
 
@@ -48,10 +45,8 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
     $conn->execute([$title, $content, $theme]);
     $conn = null;
     $srv = $_SERVER['SERVER_NAME'];
-    //header("Location:../login_profile.php?type=else");
+    header("Location:../login_profile.php?type=else");
 }
-
-echo '/' . '$_SESSION["decide"] =' . $_SESSION['decide'];
 
 
 ?>
