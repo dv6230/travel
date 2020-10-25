@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['id'])) header("Location:login_page.php");
+$web = "http://". $_SERVER['SERVER_NAME'] ."/travel/index.php";
+if (!isset($_SESSION['id'])) header("Location:$web");
 $user_id = $_SESSION['id'];
 //權限大於0可以操作
 if (isset($_SESSION['auth'])) {
