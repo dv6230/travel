@@ -16,9 +16,6 @@ include '../mydatabase.php';
 
 $err = '';
 
-if (!$_FILES) {
-    $err = '上傳圖片失敗';
-}
 $title = '';
 $content = '';
 
@@ -53,6 +50,9 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
     } else {
         $err = '無法上傳此類型的檔案';
     }
+    //header('Location: profile_add_product.php');
+    $title = '';
+    $content = '';
 }
 
 //處理文字
