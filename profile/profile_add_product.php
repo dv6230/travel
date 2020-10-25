@@ -19,7 +19,8 @@ $err = '';
 if (!$_FILES) {
     $err = '上傳圖片失敗';
 }
-
+$title = '';
+$content = '';
 
 if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
 
