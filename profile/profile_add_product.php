@@ -114,13 +114,13 @@ function process_text_data()
                     <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
                         <!-- Email -->
                         <div class="md-form">
-                            <input type="text" id="materialLoginFormEmail" class="form-control h2" name="title" required>
+                            <input value="<?php echo $title ?>" type="text" id="materialLoginFormEmail" class="form-control h2" name="title" required>
                             <label for="materialLoginFormEmail h2">標題</label>
                         </div>
                         <!-- TextArea -->
                         <div class="form-group purple-border ">
                             <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content" required></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content" required><?php echo $content ?></textarea>
                         </div>
 
                         <!-- Drag and drop file upload -->
