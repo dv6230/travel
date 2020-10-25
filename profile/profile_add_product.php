@@ -1,5 +1,5 @@
 <?php
-
+/*
 session_start();
 $web = "http://". $_SERVER['SERVER_NAME'] ."/travel/login_profile.php";
 if (!isset($_SESSION['id'])) header("Location:$web");
@@ -11,7 +11,7 @@ if (isset($_SESSION['auth'])) {
 if (!($auth > 0)) {
     header("$web");
 }
-
+*/
 include '../mydatabase.php';
 
 ?>
@@ -56,26 +56,45 @@ include '../mydatabase.php';
             <!--Card content-->
             <div class="card-body px-lg-5 pt-0">
                 <!-- Form -->
-                <form class="text-center" style="color:#33b5e5;" action="#!">
+                <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
                     <!-- Email -->
                     <div class="md-form">
-                        <input type="email" id="materialLoginFormEmail" class="form-control ">
-                        <label for="materialLoginFormEmail">標題</label>
+                        <input type="email" id="materialLoginFormEmail" class="form-control h2">
+                        <label for="materialLoginFormEmail h2">標題</label>
                     </div>
                     <!-- TextArea -->
                     <div class="form-group purple-border ">
                         <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
                         <textarea class="form-control" id="exampleFormControlTextarea4" rows="9 "></textarea>
                     </div>
-                    <!-- Drag and drop file upload -->
+                    
+                    <!-- Drag and drop file upload 
                     <div class="file-upload-wrapper">
                         <label for="input-file-now" class="text-dark">上傳圖片</label>
                         <br>
                         <input type="file" id="input-file-now" class="file-upload " />
                     </div>
+                    -->
+
+                    <fieldset>
+                        <legend>HTML File Upload</legend>
+
+                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+                        <div>
+                            <label for="fileselect">Files to upload:</label>
+                            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+                            <div id="filedrag">or drop files here</div>
+                        </div>
+
+                        <div id="submitbutton">
+                            <button type="submit">Upload Files</button>
+                        </div>
+
+                    </fieldset>
+
                     <!-- Sign in button -->
-                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" 
-                    type="submit">上傳</button>
+                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">上傳</button>
                 </form>
                 <!-- Form -->
             </div>
@@ -85,7 +104,7 @@ include '../mydatabase.php';
     </div>
 
     <script>
-        $('.file-upload').file_upload();
+
     </script>
 
     <!-- Bootstrap tooltips -->
