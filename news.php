@@ -2,6 +2,7 @@
 session_start();
 include 'index_navbar.php';
 require_once 'mydatabase.php';
+$per = 10; //每個頁面10筆資料
 ?>
 
 <!doctype html>
@@ -38,7 +39,6 @@ require_once 'mydatabase.php';
                 } else {
                     $getpage = 1;
                 }
-                $per = 10; //每個頁面10筆資料
 
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 // set the PDO error mode to exception
