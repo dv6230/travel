@@ -25,8 +25,7 @@ class manager_file_upload
         }
         if ($file_type) {
             $file_path = '../product_image/' . $file_random_name . '.' . $file_type;
-            move_uploaded_file($_FILES['image']['tmp_name'], $file_path);
-            $err = '成功上傳';
+            move_uploaded_file($_FILES['image']['tmp_name'], $file_path);            
         } else {
             $err = '無法上傳此類型的檔案';
         }

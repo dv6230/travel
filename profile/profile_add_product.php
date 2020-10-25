@@ -21,14 +21,17 @@ $title = '';
 $content = '';
 
 
-if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
+// 單位換算 5MB -> 5 * 1024 * 1024 bytes
+
+if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880) {
 
     $process_file = new manager_file_upload();
-    
+    $err = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
+
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    $err = $process_file->process_file($_FILES);
+    
 
     
     //header('Location: profile_add_product.php');
@@ -111,7 +114,7 @@ function process_text_data()
 
                         <!-- Drag and drop file upload -->
                         <div class="file-upload-wrapper text-dark">
-                            <label for="input-file-now" class="text-dark">上傳圖片</label>
+                            <label for="input-file-now" class="text-dark">上傳圖片(不可超過5MB)</label>
                             <br>
                             <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required />
                         </div>
