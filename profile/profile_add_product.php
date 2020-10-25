@@ -13,10 +13,18 @@ if (!($auth > 0)) {
 }
 */
 include '../mydatabase.php';
-if ((isset($_POST['title']) && isset($_POST['content'])) || $_FILES) {
+if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
     $title = $_POST['title']; 
     $content = $_POST['content'];
+
 }
+
+//處理文字
+function process_text_data(){
+    
+}
+
+
 ?>
 
 <!doctype html>
@@ -74,20 +82,20 @@ if ((isset($_POST['title']) && isset($_POST['content'])) || $_FILES) {
                     <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
                         <!-- Email -->
                         <div class="md-form">
-                            <input type="text" id="materialLoginFormEmail" class="form-control h2" name="title">
+                            <input type="text" id="materialLoginFormEmail" class="form-control h2" name="title" required>
                             <label for="materialLoginFormEmail h2">標題</label>
                         </div>
                         <!-- TextArea -->
                         <div class="form-group purple-border ">
                             <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content" required></textarea>
                         </div>
 
                         <!-- Drag and drop file upload -->
                         <div class="file-upload-wrapper text-dark">
                             <label for="input-file-now" class="text-dark">上傳圖片</label>
                             <br>
-                            <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" />
+                            <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required/>
                         </div>
 
 
