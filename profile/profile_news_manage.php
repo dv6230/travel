@@ -12,7 +12,7 @@ if (!($auth > 0)) {
 }
 
 include '../mydatabase.php';
-
+$per = 10; //每個頁面10筆資料
 ?>
 
 <!doctype html>
@@ -67,7 +67,6 @@ include '../mydatabase.php';
                 } else {
                     $getpage = 1;
                 }
-                $per = 10; //每個頁面10筆資料
 
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 // set the PDO error mode to exception
@@ -90,7 +89,7 @@ include '../mydatabase.php';
                         </svg>
                     </button>
                 </form>'; //編輯 button
-                    echo '<tr><td>' . $row['id'] . '</td><td>' . $row['title'] . '</td><td>' . $row['insert_time'] . '</td> <td>' . $row['theme'] . '</td> <td>' . $str .$row['id'].$str2. '</td> </tr>';
+                    echo '<tr><td>' . $row['id'] . '</td><td>' . $row['title'] . '</td><td>' . $row['insert_time'] . '</td> <td>' . $row['theme'] . '</td> <td>' . $str . $row['id'] . $str2 . '</td> </tr>';
                 }
                 ?>
             </tbody>

@@ -7,7 +7,7 @@ class count_page
   protected $password = "";
   protected $dbname = "travel";
 
-  function pagecount($table_name, $per)
+  function pagecount(string $table_name,int $per)
   {
 
     $conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
