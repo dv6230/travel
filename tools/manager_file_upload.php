@@ -1,8 +1,8 @@
 <?php
 
-class file_upload{
-    public function FunctionName(int $var ,string $ifv)
+class file_upload
+{
+    public function FunctionName()
     {
-        
     }
 }

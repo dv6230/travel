@@ -13,15 +13,47 @@ if (!($auth > 0)) {
 }
 */
 include '../mydatabase.php';
+
+$err = '';
+
+if (!$_FILES) {
+    $err = '上傳圖片失敗';
+}
+
+
 if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
-    $title = $_POST['title']; 
+
+
+    $title = $_POST['title'];
     $content = $_POST['content'];
 
+    $file_name = $_FILES['image']['name'];
+    $file_random_name = uniqid();
+    switch ($_FILES['image']['type']) {
+        case 'image/jpeg':
+            $file_type = 'jpg';
+            break;
+        case 'image/png':
+            $file_type = 'png';
+            break;
+        case 'image/gif':
+            $file_type = 'gif';
+            break;
+        default:
+            $file_type = '';
+            break;
+    }
+    if ($file_type) {
+        $file_path = '../product_image/' . $file_random_name . '.' . $file_type;
+        move_uploaded_file($_FILES['image']['tmp_name'], $file_path);
+    } else {
+        $err = '無法上傳此類型的檔案';
+    }
 }
 
 //處理文字
-function process_text_data(){
-    
+function process_text_data()
+{
 }
 
 
@@ -95,9 +127,9 @@ function process_text_data(){
                         <div class="file-upload-wrapper text-dark">
                             <label for="input-file-now" class="text-dark">上傳圖片</label>
                             <br>
-                            <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required/>
+                            <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required />
                         </div>
-
+                        <p class="text-danger"><?php echo $err; ?></p>
 
                         <!-- Sign in button -->
                         <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">上傳</button>
