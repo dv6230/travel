@@ -13,7 +13,30 @@ if (!($auth > 0)) {
 
 include '../mydatabase.php';
 
-if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['theme']) ) {
+//防止頁面刷新後重複傳送表單
+if (!isset($_SESSION['decide'])) {
+    $_SESSION['decide'] = 0;
+}
+
+echo  $_SESSION['decide'] . '/' .  $_POST['decide'];
+
+
+/*
+防止使用者按下 重新整理 表單送出上一筆資料
+
+操作邏輯 : 當頁面重新整理時，網頁送出的內容為之前送出的內容，所以 HTML 表單內的 
+<input  name="decide" value="<?php echo $_SESSION['decide']; ?>">
+是上一筆資料的 $_SESSION['decide'] 數值 ， 如果使用者按下送出
+則會送出目前 $_SESSION['decide'] 的 數值
+
+*/
+
+//$_SESSION['decide']==$_POST['decide'] 檢視如果 裡面的數值相同則處理表單  
+if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['theme']) && $_SESSION['decide'] == $_POST['decide']) {
+
+    //計數器 ++
+    $_SESSION['decide'] += 1;
+
     $title = $_POST['title'];
     $content = $_POST['text_content'];
     $theme = $_POST['theme'];
@@ -22,11 +45,14 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO article (title,content,theme) VALUES (?,?,?)";
     $conn = $conn->prepare($sql);
-    $conn->execute([$title, $content,$theme]);
+    $conn->execute([$title, $content, $theme]);
     $conn = null;
     $srv = $_SERVER['SERVER_NAME'];
-    header("Location:../login_profile.php?type=else");
+    //header("Location:../login_profile.php?type=else");
 }
+
+echo '/' . '$_SESSION["decide"] =' . $_SESSION['decide'];
+
 
 ?>
 
@@ -60,6 +86,10 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
         <h2 class="m-4">新增消息</h2>
         <form action="profile_addnews.php" method="POST" class="m-5">
 
+            <!-- 表單計數器 -- 防止重新整理重複發送表單 -->
+            <input type="hidden" name="decide" value="<?php echo $_SESSION['decide']; ?>">
+            <!-- END -->
+
             <div class="form-group">
                 <label for="title">標題</label>
                 <input type="text" class="form-control" id="title" aria-describedby="標題" name="title" required>
@@ -71,7 +101,7 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
 
             <div class="m-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"  id="Radios1" value="活動" checked name="theme">
+                    <input class="form-check-input" type="radio" id="Radios1" value="活動" checked name="theme">
                     <label class="form-check-label" for="Radios1">
                         活動
                     </label>
@@ -83,19 +113,19 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"  id="Radios3" value="介紹" name="theme">
+                    <input class="form-check-input" type="radio" id="Radios3" value="介紹" name="theme">
                     <label class="form-check-label" for="Radios3">
                         介紹
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"  id="Radios4" value="焦點" name="theme">
+                    <input class="form-check-input" type="radio" id="Radios4" value="焦點" name="theme">
                     <label class="form-check-label" for="Radios4">
                         焦點
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio"  id="Radios5" value="其他" name="theme">
+                    <input class="form-check-input" type="radio" id="Radios5" value="其他" name="theme">
                     <label class="form-check-label" for="Radios5">
                         其他
                     </label>
