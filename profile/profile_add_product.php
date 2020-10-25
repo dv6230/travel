@@ -40,6 +40,9 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES) {
         case 'image/gif':
             $file_type = 'gif';
             break;
+        case 'image/webp':
+            $file_type = 'webp';
+            break;
         default:
             $file_type = '';
             break;
