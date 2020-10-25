@@ -34,7 +34,7 @@ include '../mydatabase.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    
     <title>新增旅遊路徑</title>
     <style>
         nav.navbar {
@@ -67,7 +67,7 @@ include '../mydatabase.php';
                         <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
                         <textarea class="form-control" id="exampleFormControlTextarea4" rows="9 "></textarea>
                     </div>
-                    
+
                     <!-- Drag and drop file upload 
                     <div class="file-upload-wrapper">
                         <label for="input-file-now" class="text-dark">上傳圖片</label>
@@ -104,9 +104,8 @@ include '../mydatabase.php';
     </div>
 
     <script>
-
     </script>
-
+    <script src="filedrag.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
