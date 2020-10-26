@@ -20,8 +20,22 @@ $rturn = '';
 $title = '';
 $content = '';
 
+//防止頁面刷新後重複傳送表單
+if (!isset($_SESSION['decide'])) {
+    $_SESSION['decide'] = 0;
+}
+function checkpostandsession()
+{
+    if ($_SESSION['decide'] == $_POST['decide']) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//--------------------------------
+
 // 單位換算 5MB -> 5 * 1024 * 1024 bytes
-if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880) {
+if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880 && checkpostandsession()) {
 
     $process_file = new manager_product_upload();
     $rturn = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
@@ -98,6 +112,11 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                 <div class="card-body px-lg-5 pt-0">
                     <!-- Form -->
                     <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
+                        
+                        <!-- 表單計數器 -- 防止重新整理重複發送表單 -->
+                        <input type="hidden" name="decide" value="<?php echo $_SESSION['decide']; ?>">
+                        <!-- END -->
+
                         <!-- Email -->
                         <div class="md-form">
                             <input value="<?php echo $title ?>" type="text" id="materialLoginFormEmail" class="form-control h2" name="title" required>
@@ -108,7 +127,6 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                             <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
                             <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content" required><?php echo $content ?></textarea>
                         </div>
-
                         <!-- Drag and drop file upload -->
                         <div class="file-upload-wrapper text-dark">
                             <label for="input-file-now" class="text-dark">上傳圖片(支援jpg、png；不可超過5MB)</label>
@@ -116,7 +134,6 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                             <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required />
                         </div>
                         <p class="text-danger"><?php echo $rturn; ?></p>
-
                         <!-- Sign in button -->
                         <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">上傳</button>
                     </form>
