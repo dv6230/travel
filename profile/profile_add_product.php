@@ -13,7 +13,7 @@ if (!($auth > 0)) {
 }
 */
 include '../mydatabase.php';
-require '../tools/manager_file_upload.php' ;
+require '../tools/manager_product_upload.php' ;
 
 $err = '';
 
@@ -25,9 +25,10 @@ $content = '';
 
 if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880) {
 
-    $process_file = new manager_file_upload();
+    $process_file = new manager_product_upload();
     $err = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
 
+    
     $title = $_POST['title'];
     $content = $_POST['content'];
 

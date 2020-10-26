@@ -1,8 +1,9 @@
 <?php
 
-class manager_file_upload
+class manager_product_upload
 {
-    public function process_file($getfile)
+
+    function process_file($getfile)
     {
         $file_name = $_FILES['image']['name'];
         $file_random_name = uniqid();
@@ -25,14 +26,18 @@ class manager_file_upload
         }
         if ($file_type) {
             $file_path = '../product_image/' . $file_random_name . '.' . $file_type;
-            move_uploaded_file($_FILES['image']['tmp_name'], $file_path);            
+            move_uploaded_file($_FILES['image']['tmp_name'], $file_path);
         } else {
             $err = '無法上傳此類型的檔案';
         }
-        return $err ;
+        return $err;
     }
-}
 
-class product_add{
-    
+    function process_content($title, $content)
+    {
+        include '../mydatabase.php';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "INSERT INTO ";
+    }
 }
