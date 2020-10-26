@@ -12,10 +12,11 @@ if (!($auth > 0)) {
     header("$web");
 }
 */
-include '../mydatabase.php';
-require '../tools/manager_product_upload.php' ;
 
-$err = '';
+require '../mydatabase.php';
+require '../tools/manager_product_upload.php';
+
+$rturn = '';
 $title = '';
 $content = '';
 
@@ -23,21 +24,24 @@ $content = '';
 if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880) {
 
     $process_file = new manager_product_upload();
-    $err = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
-
-    
+    $rturn = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
+    if ($rturn != '無法上傳此類型的檔案') {  //支援的檔案
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $process_file->process_content($title, $content, $rturn);
+        $title = '';
+        $content = '';
+        $rturn = '';
+    } else { //不支援的檔案         
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+    }
+    //header('Location: profile_add_product.php');
+} else if ($_FILES && $_FILES["image"]["size"] >= 5242880) {
     $title = $_POST['title'];
     $content = $_POST['content'];
-
-    
-
-    
-    //header('Location: profile_add_product.php');
-    $title = '';
-    $content = '';
-   
+    $rturn = '檔案過大';
 }
-
 
 ?>
 
@@ -107,11 +111,11 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
 
                         <!-- Drag and drop file upload -->
                         <div class="file-upload-wrapper text-dark">
-                            <label for="input-file-now" class="text-dark">上傳圖片(不可超過5MB)</label>
+                            <label for="input-file-now" class="text-dark">上傳圖片(支援jpg、png；不可超過5MB)</label>
                             <br>
                             <input type="file" id="input-file-now" class="file-upload upload_img w-100" name="image" required />
                         </div>
-                        <p class="text-danger"><?php echo $err; ?></p>
+                        <p class="text-danger"><?php echo $rturn; ?></p>
 
                         <!-- Sign in button -->
                         <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">上傳</button>
