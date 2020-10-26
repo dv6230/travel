@@ -21,12 +21,12 @@ $title = '';
 $content = '';
 
 //防止頁面刷新後重複傳送表單
-if (!isset($_SESSION['decide'])) {
-    $_SESSION['decide'] = 0;
+if (!isset($_SESSION['decide_add_product'])) {
+    $_SESSION['decide_add_product'] = 0;
 }
 function checkpostandsession()
 {
-    if ($_SESSION['decide'] == $_POST['decide']) {
+    if ($_SESSION['decide_add_product'] == $_POST['decide_add_product']) {
         return true;
     } else {
         return false;
@@ -114,7 +114,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                     <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
                         
                         <!-- 表單計數器 -- 防止重新整理重複發送表單 -->
-                        <input type="hidden" name="decide" value="<?php echo $_SESSION['decide']; ?>">
+                        <input type="hidden" name="decide_add_product" value="<?php echo $_SESSION['decide_add_product']; ?>">
                         <!-- END -->
 
                         <!-- Email -->
