@@ -169,7 +169,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 
         <?php
 
-        if (!$create_success) {
+        if ($create_success) {
             echo " $(document).ready(function() {
                 $('#myModal').modal('show');
             });";
