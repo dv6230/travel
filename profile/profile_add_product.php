@@ -16,13 +16,10 @@ include '../mydatabase.php';
 require '../tools/manager_product_upload.php' ;
 
 $err = '';
-
 $title = '';
 $content = '';
 
-
 // 單位換算 5MB -> 5 * 1024 * 1024 bytes
-
 if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880) {
 
     $process_file = new manager_product_upload();
@@ -39,11 +36,6 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
     $title = '';
     $content = '';
    
-}
-
-//處理文字
-function process_text_data()
-{
 }
 
 
