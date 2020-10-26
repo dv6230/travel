@@ -37,11 +37,11 @@
                         <form action="login.php" method="POST" class="p-2 login_form">
                             <div>
                                 <label for="acnt" class="mb-0 mt-2">帳號</label>
-                                <input type="text" name="acnt" autocomplete="off" class="w-100">
+                                <input type="text" name="acnt" autocomplete="off" class="w-100" required>
                             </div>
                             <div>
                                 <label for="pwd" class="mb-0 mt-2">密碼</label>
-                                <input type="password" name="pwd" autocomplete="off" class="w-100">
+                                <input type="password" name="pwd" autocomplete="off" class="w-100" required>
                             </div>
                             <div class="text-danger">'.$error.'</div>
                             <a href="create_account.php" class="float-right">註冊帳號</a>                
