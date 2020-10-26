@@ -40,6 +40,10 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
     $process_file = new manager_product_upload();
     $rturn = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
     if ($rturn != '無法上傳此類型的檔案') {  //支援的檔案
+
+        //計數器 ++
+        $_SESSION['decide_add_product'] += 1;
+
         $title = $_POST['title'];
         $content = $_POST['content'];
         $process_file->process_content($title, $content, $rturn);
@@ -112,7 +116,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                 <div class="card-body px-lg-5 pt-0">
                     <!-- Form -->
                     <form class="text-center" style="color:#33b5e5;" action="profile_add_product.php" method="POST" enctype="multipart/form-data">
-                        
+
                         <!-- 表單計數器 -- 防止重新整理重複發送表單 -->
                         <input type="hidden" name="decide_add_product" value="<?php echo $_SESSION['decide_add_product']; ?>">
                         <!-- END -->
