@@ -32,3 +32,7 @@ class manager_file_upload
         return $err ;
     }
 }
+
+class product_add{
+    
+}
