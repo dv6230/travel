@@ -1,4 +1,5 @@
-<? session_start();
+<? 
+session_start();
 ?>
 
 <!doctype html>
@@ -24,14 +25,22 @@
             <h1>旅遊列表</h1>
         </div>
         <div class='row'>
-            <div class="describe col-md-6">
-                <h2>阿勒格尼國家森林</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sequi molestiae quo alias harum! Reprehenderit, nobis dolor atque, quos, vel modi inventore voluptatum repellat est facilis nihil sequi quam consequatur.</p>
-                
-                <button class="btn btn-outline-primary d-flex align-items-end">1234</button>
-                
-            </div>
-            <img class="col-md-6 m-0 p-0" height="360px" src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="">
+            <?php
+            require_once 'mydatabase.php';
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT id,title,content,image_name FROM attractions ");
+            $stmt->execute();
+            $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <?php foreach ($result_list as $value) : ?>
+                <div class="describe col-md-6">
+                    <h2><?php echo $value['title']; ?></h2>
+                    <p><?php echo $value['content']; ?></p>
+                    <button class="btn btn-outline-primary d-flex align-items-end" id='<?php echo 'tarvelid' . $value['id']; ?>'>1234</button>
+                </div>
+                <img class="col-md-6 m-0 p-0" height="360px" src="<?php echo 'product_image/' . $value['image_name']; ?>" alt="">
+            <?php endforeach; ?>
         </div>
     </div>
 

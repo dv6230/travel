@@ -36,7 +36,7 @@ class manager_product_upload
 
     function process_content($title, $content, $image_name)
     {
-        include '../mydatabase.php';
+        require '../mydatabase.php';
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $statement = $conn->prepare("INSERT INTO `attractions`(`title`, `content`, `image_name`) VALUES (?,?,?)");
