@@ -12,7 +12,6 @@ session_start();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="css/style3.css">
     <title>旅遊列表</title>
 </head>
@@ -24,24 +23,30 @@ session_start();
         <div class="p-5 m-2">
             <h1>旅遊列表</h1>
         </div>
-        <div class='row'>
-            <?php
-            require_once 'mydatabase.php';
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("SELECT id,title,content,image_name FROM attractions ");
-            $stmt->execute();
-            $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-            <?php foreach ($result_list as $value) : ?>
-                <div class="describe col-md-6">
+
+        <?php
+        require_once 'mydatabase.php';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare("SELECT id,title,content,image_name FROM attractions ");
+        $stmt->execute();
+        $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
+        <?php foreach ($result_list as $value) : ?>
+            <div class="card_list row">
+                <div class="describe-content col-md-6 m-0">
                     <h2><?php echo $value['title']; ?></h2>
-                    <p><?php echo $value['content']; ?></p>
+                    <p><?php echo $value['content']; ?></p>                    
                     <button class="btn btn-outline-primary d-flex align-items-end" id='<?php echo 'tarvelid' . $value['id']; ?>'>1234</button>
+                    <div class="clearfix"></div>
+                </div>               
+                <div class="col-md-6 m-0 p-0">
+                    <img class="describe-image img-fluid" src="<?php echo 'product_image/' . $value['image_name']; ?>" alt="">
                 </div>
-                <img class="col-md-6 m-0 p-0" height="360px" src="<?php echo 'product_image/' . $value['image_name']; ?>" alt="">
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
+
     </div>
 
     <?php include 'index_footer.html'; ?>

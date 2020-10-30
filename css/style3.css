@@ -1,14 +1,65 @@
-.head_img{
-    height: 480px;
-    width :100%;
-    object-fit: cover;    
+nav.navbar {
+    background-color: rgba(10, 10, 10, 0.9);
 }
 
-.describe{
-    position:relative;
-    height:360px;
+.head_img {
+    height    : 480px;
+    width     : 100%;
+    object-fit: cover;
 }
-.describe .btn{
-    position:absolute;
-    bottom: 10px;
+
+.describe-content {
+    position: relative;
+}
+
+.describe-content .btn {
+    position: absolute;
+    bottom  : 10px;
+}
+
+.card_list {
+    margin-top   : 20px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: rgb(72, 109, 77)
+}
+
+li {
+    list-style     : none;
+    list-style-type: none;
+}
+
+.n-p {
+    padding: 0px;
+}
+
+.n-p>li>a {
+    color: rgb(247, 247, 247);
+}
+
+.describe-image {
+    height: 360px;
+    width : 100%;
+}
+
+
+@media (max-width: 740px) {
+
+    .describe-content {
+        padding-left : 35px;
+        padding-right: 35px;
+        margin-bottom: 10px;
+    }
+
+    .describe-image {
+        width     : 100%;
+        height    : auto;
+        padding   : 10px;
+        object-fit: cover;
+        overflow  : hidden;
+    }
+
+    
 }
