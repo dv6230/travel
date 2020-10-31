@@ -26,11 +26,32 @@ $per = 10; //每個頁面10筆資料
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>旅遊管理</title>
+    <style>
+        nav.navbar {
+            background-color: rgba(10, 10, 10, 0.9);
+        }
+    </style>
 </head>
 
 <body>
     <?php include '../index_navbar.php'; ?>
 
+    <div class="container-fluid">
+        .row
+        <div class="col-md-3">
+            <div class="box1 p-2"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="card col-md-4">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
