@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-/*
+
 $web = "http://". $_SERVER['SERVER_NAME'] ."/travel/login_profile.php";
 if (!isset($_SESSION['id'])) header("Location:$web");
 $user_id = $_SESSION['id'];
@@ -10,9 +10,9 @@ if (isset($_SESSION['auth'])) {
     $auth = (int)$_SESSION['auth'];
 }
 if (!($auth > 0)) {
-    header("$web");
+    header("Location:profile_center.php");
 }
-*/
+
 
 require '../mydatabase.php';
 require '../tools/manager_product_upload.php';
@@ -165,7 +165,6 @@ if (isset($_POST['title']) && isset($_POST['content'])  && isset($_POST['price']
     </div>
 
 
-    <script src="filedrag.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
