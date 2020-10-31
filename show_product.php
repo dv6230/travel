@@ -28,7 +28,7 @@ session_start();
         require_once 'mydatabase.php';
         $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT id,title,content,image_name FROM attractions ");
+        $stmt = $conn->prepare("SELECT id,title,content,image_name FROM attractions WHERE isshow = 1");
         $stmt->execute();
         $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>

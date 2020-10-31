@@ -84,24 +84,28 @@ include '../mydatabase.php';
     </div>
     <script>
         $(document).ready(function() {
-
             $(".checkshow").click(function() {
-                if ($(this).is(":checked")) {
+                if ($(this).is(":checked")) {   
+                    console.log('開啟');                 
                     $.post(
-                        "../tools/profile_product_manage.php", {
-                            isshow: 0,
+                        "http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/tools/product_update.php", {
+                            isshow: 1 ,
                             product_id: $(this).val()
                         },
-                        function() {}
+                        function() {
+                           
+                        }
                     );
                 } else {
-                    $.post(
-                        "profile_product_manage.php", {
-                            isshow: 1,
+                    console.log('關閉');
+                    $.ajax({
+                        url: "http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/tools/product_update.php",
+                        data: {
+                            isshow: 0 ,
                             product_id: $(this).val()
                         },
-                        function() {}
-                    );
+                        method: 'POST'
+                    })
                 }
             });
         });
