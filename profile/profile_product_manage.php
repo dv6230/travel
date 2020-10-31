@@ -37,11 +37,13 @@ include '../mydatabase.php';
     <?php include '../index_navbar.php'; ?>
 
     <div class="container-fluid">
-        <div class="row mt-5">
-            <div class="col-md-3">
-                <div class="box1 p-2"></div>
+        <div class="row mt-5 ">
+            <div class="col-md-3 pl-5 ml-2">
+                <div class="box1 p-2">
+                    <a href="profile_add_product.php" class="">新增資料</a>
+                </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="row">
 
                     <?php
@@ -54,27 +56,30 @@ include '../mydatabase.php';
                     ?>
 
                     <?php foreach ($result_list as $value) : ?>
-                        <div class="card col-md-3 m-2 p-0 ">
-                            <img src="../product_image/<?php echo $value['image_name']; ?>" class="card-img-top w-100 " alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $value['title']; ?></h5>
-                                <!-- Rounded switch -->
-                                <label for="<?php echo 'show_' . $value['id']; ?>" class="label-hight">是否開啟</label>
-                                <?php if ($value['isshow'] == 1) : ?>
-                                    <label class="switch">
-                                        <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>" checked>
-                                        <span class="slider round"></span>
-                                    </label>
-                                <?php else : ?>
-                                    <label class="switch">
-                                        <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>">
-                                        <span class="slider round"></span>
-                                    </label>
-                                <?php endif; ?>
-                                <br>
-                                <a href="#" class="btn btn-primary">編輯</a>
+                        <div class="col-md-4 p-2 ">
+                            <div class="card p-0">
+                                <img src="../product_image/<?php echo $value['image_name']; ?>" height="275px" class="card-img-top w-100 " alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $value['title']; ?></h5>
+                                    <!-- Rounded switch -->
+                                    <label for="<?php echo 'show_' . $value['id']; ?>" class="label-hight">是否展售</label>
+                                    <?php if ($value['isshow'] == 1) : ?>
+                                        <label class="switch">
+                                            <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    <?php else : ?>
+                                        <label class="switch">
+                                            <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    <?php endif; ?>
+                                    <br>
+                                    <a href="#" class="btn btn-primary">編輯</a>
+                                </div>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
 
                 </div>
@@ -85,23 +90,24 @@ include '../mydatabase.php';
     <script>
         $(document).ready(function() {
             $(".checkshow").click(function() {
-                if ($(this).is(":checked")) {   
-                    console.log('開啟');                 
+                if ($(this).is(":checked")) {
+                    //Jquery post
                     $.post(
                         "http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/tools/product_update.php", {
-                            isshow: 1 ,
+                            isshow: 1,
                             product_id: $(this).val()
                         },
                         function() {
-                           
+
                         }
                     );
                 } else {
                     console.log('關閉');
                     $.ajax({
+                        //Jquery ajax
                         url: "http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/tools/product_update.php",
                         data: {
-                            isshow: 0 ,
+                            isshow: 0,
                             product_id: $(this).val()
                         },
                         method: 'POST'
