@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['user_id'])) header("Location:../login_page.php");
+if (!isset($_SESSION['user_id'])) header('Location: http://' . $_SERVER['SERVER_NAME']  . '/travel/login_page.php');
 $user_id = $_SESSION['user_id'];
 ?>
 <!-- Card -->

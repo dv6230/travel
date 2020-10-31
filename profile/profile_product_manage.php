@@ -10,11 +10,6 @@ if (!($auth > 0)) {
     header("Location:profile_center.php");
 }
 include '../mydatabase.php';
-$per = 10; //每個頁面10筆資料
-
-if (isset($_POST['isshow'])&&isset($_POST['id'])) {
-   
-}
 
 ?>
 
@@ -90,28 +85,23 @@ if (isset($_POST['isshow'])&&isset($_POST['id'])) {
     <script>
         $(document).ready(function() {
 
-            $(".checkshow").click(function() {                
+            $(".checkshow").click(function() {
                 if ($(this).is(":checked")) {
                     $.post(
-                        "profile_product_manage.php", {
+                        "../tools/profile_product_manage.php", {
                             isshow: 0,
-                            id : $(this).val()
+                            product_id: $(this).val()
                         },
-                        function() {                            
-                        }
+                        function() {}
                     );
                 } else {
-                    $.ajax({
-                        type: "POST",
-                        url: "profile_product_manage.php",
-                        success: function(result) {},
-                        data: { //傳送資料
+                    $.post(
+                        "profile_product_manage.php", {
                             isshow: 1,
+                            product_id: $(this).val()
                         },
-                        error: function(results) {
-                            alert("新增失敗");
-                        }
-                    });
+                        function() {}
+                    );
                 }
             });
         });
