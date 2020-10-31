@@ -17,9 +17,12 @@ if (!($auth > 0)) {
 require '../mydatabase.php';
 require '../tools/manager_product_upload.php';
 
+//預設參數
 $rturn = '';
 $title = '';
 $content = '';
+$price = '';
+
 
 //防止頁面刷新後重複傳送表單
 if (!isset($_SESSION['decide_add_product'])) {
@@ -36,7 +39,7 @@ function checkpostandsession()
 //--------------------------------
 
 // 單位換算 5MB -> 5 * 1024 * 1024 bytes
-if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["image"]["size"] < 5242880 && checkpostandsession()) {
+if (isset($_POST['title']) && isset($_POST['content'])  && isset($_POST['price']) && $_FILES && $_FILES["image"]["size"] < 5242880 && checkpostandsession()) {
 
     $process_file = new manager_product_upload();
     $rturn = $process_file->process_file($_FILES); //成功:'' ; 失敗:'無法上傳此類型的檔案';
@@ -47,18 +50,23 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
 
         $title = $_POST['title'];
         $content = $_POST['content'];
-        $process_file->process_content($title, $content, $rturn);
+        $price = $_POST['price'];
+
+        $process_file->process_content($title, $content, $rturn, $price);
         $title = '';
         $content = '';
+        $price = '';
         $rturn = '';
     } else { //不支援的檔案         
         $title = $_POST['title'];
         $content = $_POST['content'];
+        $price = $_POST['price'];
     }
     //header('Location: profile_add_product.php');
 } else if ($_FILES && $_FILES["image"]["size"] >= 5242880) {
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $price = $_POST['price'];
     $rturn = '檔案過大';
 }
 
@@ -122,7 +130,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                         <input type="hidden" name="decide_add_product" value="<?php echo $_SESSION['decide_add_product']; ?>">
                         <!-- END -->
 
-                        <!-- Email -->
+                        <!-- Title -->
                         <div class="md-form">
                             <input value="<?php echo $title ?>" type="text" id="materialLoginFormEmail" class="form-control h2" name="title" required>
                             <label for="materialLoginFormEmail h2">標題</label>
@@ -131,6 +139,11 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_FILES && $_FILES["im
                         <div class="form-group purple-border ">
                             <label for="exampleFormControlTextarea4" class="text-dark">內容描述</label>
                             <textarea class="form-control" id="exampleFormControlTextarea4" rows="9" name="content" required><?php echo $content ?></textarea>
+                        </div>
+                        <!-- Price -->
+                        <div class="md-form">
+                            <input value="<?php echo $price ?>" type="number" id="materialLoginFormPrice" class="form-control h2" name="price" required>
+                            <label for="materialLoginFormPrice h2">價錢</label>
                         </div>
                         <!-- Drag and drop file upload -->
                         <div class="file-upload-wrapper text-dark">

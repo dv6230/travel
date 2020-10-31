@@ -10,6 +10,7 @@ nav.navbar {
 
 .describe-content {
     position: relative;
+    text-overflow: ellipsis;
 }
 
 .describe-content .btn {

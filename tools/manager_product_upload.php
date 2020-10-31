@@ -34,12 +34,12 @@ class manager_product_upload
         return $err;
     }
 
-    function process_content($title, $content, $image_name)
+    function process_content($title, $content, $image_name ,$price)
     {
         require '../mydatabase.php';
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $statement = $conn->prepare("INSERT INTO `attractions`(`title`, `content`, `image_name`) VALUES (?,?,?)");
-        $statement->execute(array($title, $content, $image_name));
+        $statement = $conn->prepare("INSERT INTO `attractions`(`title`, `content`, `image_name` ,`price`) VALUES (?,?,?,?)");
+        $statement->execute(array($title, $content, $image_name,$price));
     }
 }
