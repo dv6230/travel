@@ -3,8 +3,8 @@
 session_start();
 
 $web = "http://". $_SERVER['SERVER_NAME'] ."/travel/login_profile.php";
-if (!isset($_SESSION['id'])) header("Location:$web");
-$user_id = $_SESSION['id'];
+if (!isset($_SESSION['user_id'])) header("Location:$web");
+$user_id = $_SESSION['user_id'];
 //權限大於0可以操作
 if (isset($_SESSION['auth'])) {
     $auth = (int)$_SESSION['auth'];

@@ -32,7 +32,7 @@
                                     <a class="dropdown-item text-danger" href="http://' . $_SERVER['SERVER_NAME']  . '/travel/logout.php">登出</a>
                                 </div>
                             </li>';
-                if (isset($_SESSION['id'])) {
+                if (isset($_SESSION['user_id'])) {
                     echo $str_is_in;
                 } else {
                     echo $str_is_out;

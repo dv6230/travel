@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['id'])) header("Location:login_page.php");
-$user_id = $_SESSION['id'];
+if (!isset($_SESSION['user_id'])) header("Location:login_page.php");
+$user_id = $_SESSION['user_id'];
 //權限大於0可以操作
 if (isset($_SESSION['auth'])) {
     $auth = (int)$_SESSION['auth'];
@@ -11,6 +11,11 @@ if (!($auth > 0)) {
 }
 include '../mydatabase.php';
 $per = 10; //每個頁面10筆資料
+
+if (isset($_POST['isshow'])&&isset($_POST['id'])) {
+   
+}
+
 ?>
 
 
@@ -25,7 +30,7 @@ $per = 10; //每個頁面10筆資料
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
@@ -59,15 +64,15 @@ $per = 10; //每個頁面10筆資料
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $value['title']; ?></h5>
                                 <!-- Rounded switch -->
-                                <label for="<?php echo 'show_' . $value['id']; ?>" class="label-hight checkshow">是否開啟</label>
+                                <label for="<?php echo 'show_' . $value['id']; ?>" class="label-hight">是否開啟</label>
                                 <?php if ($value['isshow'] == 1) : ?>
                                     <label class="switch">
-                                        <input type="checkbox" id="<?php echo 'show_' . $value['id']; ?>" checked>
+                                        <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>" checked>
                                         <span class="slider round"></span>
                                     </label>
                                 <?php else : ?>
                                     <label class="switch">
-                                        <input type="checkbox" id="<?php echo 'show_' . $value['id']; ?>">
+                                        <input type="checkbox" class="checkshow" id="<?php echo 'show_' . $value['id']; ?>" value="<?php echo $value['id']; ?>">
                                         <span class="slider round"></span>
                                     </label>
                                 <?php endif; ?>
@@ -83,26 +88,32 @@ $per = 10; //每個頁面10筆資料
 
     </div>
     <script>
-        $(".checkshow").click(function() {
-            if ($('.checkshow').prop('checked')) {
-                $.ajax({
-                    type: "POST",
-                    url: "profile_product_manage1.php",
-                    success: function(result) {},
-                    error: function(results) {
-                        alert("新增失敗");
-                    }
-                });
-            } else {
-                $.ajax({
-                    type: "POST",
-                    url: "profile_product_manage1.php",
-                    success: function(result) {},
-                    error: function(results) {
-                        alert("新增失敗");
-                    }
-                });
-            }
+        $(document).ready(function() {
+
+            $(".checkshow").click(function() {                
+                if ($(this).is(":checked")) {
+                    $.post(
+                        "profile_product_manage.php", {
+                            isshow: 0,
+                            id : $(this).val()
+                        },
+                        function() {                            
+                        }
+                    );
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "profile_product_manage.php",
+                        success: function(result) {},
+                        data: { //傳送資料
+                            isshow: 1,
+                        },
+                        error: function(results) {
+                            alert("新增失敗");
+                        }
+                    });
+                }
+            });
         });
     </script>
     <!-- Optional JavaScript -->

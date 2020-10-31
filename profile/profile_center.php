@@ -1,6 +1,6 @@
 <?php
-if (!isset($_SESSION['id'])) header("Location:../login_page.php");
-$user_id = $_SESSION['id'];
+if (!isset($_SESSION['user_id'])) header("Location:../login_page.php");
+$user_id = $_SESSION['user_id'];
 ?>
 <!-- Card -->
 <h3 class='mb-3'>會員中心</h3>

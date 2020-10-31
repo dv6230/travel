@@ -1,8 +1,8 @@
 <?php
 
 require_once 'mydatabase.php';
-if (isset($_SESSION['id'])) {
-    $user_id = $_SESSION['id'];
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
 } else {
     header("Location:login_page.php");
 }
