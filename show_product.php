@@ -35,10 +35,10 @@ session_start();
 
         <?php foreach ($result_list as $value) : ?>
             <div class="card_list row">
-                <div class="describe-content col-md-6 m-0">
+                <div class="describe-content col-md-6 m-0  d-flex align-items-start flex-column">
                     <h2><?php echo $value['title']; ?></h2>
                     <p><?php echo $value['content']; ?></p>                    
-                    <button class="btn btn-outline-primary d-flex align-items-end" id='<?php echo 'tarvelid' . $value['id']; ?>'>1234</button>
+                    <button class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</button>
                     <div class="clearfix"></div>
                 </div>               
                 <div class="col-md-6 m-0 p-0">

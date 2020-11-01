@@ -19,7 +19,7 @@ function querymysql($query)
 }
 
 create_table('transaction', "`id` int(11) NOT NULL AUTO_INCREMENT,
-`name` varchar(56) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+`product_id	` int(11) NOT NULL,
 `price` int(11) NOT NULL,
 `date` date NOT NULL DEFAULT current_timestamp(),
 `buyers_id` int(11) NOT NULL,
@@ -37,6 +37,14 @@ create_table('article', " `id` INT NOT NULL AUTO_INCREMENT ,
 `content`  MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 `theme` VARCHAR(24) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 `insert_time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)");
+
+create_table('attractions'," `id` int(11) NOT NULL,
+`title` varchar(48) COLLATE utf8_unicode_ci NOT NULL,
+`content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+`price` int(11) NOT NULL DEFAULT 99999,
+`image_name` varchar(36) COLLATE utf8_unicode_ci NOT NULL,
+`isshow` tinyint(1) NOT NULL DEFAULT 1,
+`time` datetime NOT NULL DEFAULT current_timestamp()");
 
 
 //預設 管理者帳號密碼 

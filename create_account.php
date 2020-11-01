@@ -80,7 +80,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             }
         }
 
-        .card-size{
+        .card-size {
             width: 320px;
         }
     </style>
@@ -114,7 +114,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                                 <label for="pass2">再次輸入密碼</label>
                                 <input type="password" class="form-control" id="pass2" placeholder="Password" required>
                             </div>
-                            <div id="notsame">
+                            <div id="notsame" class="text-danger">
                             </div>
                         </div>
 
@@ -158,13 +158,16 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
             event.preventDefault();
             var ps1 = document.getElementById("pass1").value;
             var ps2 = document.getElementById("pass2").value;
-            if (ps1 === ps2) {
-
-                document.form1.submit();
-
+            if (ps1.length < 7) {  //密碼長度檢測 
+                var str = document.getElementById("notsame").innerHTML = "密碼太短";
             } else {
-                var str = document.getElementById("notsame").innerHTML = "密碼輸入錯誤";
+                if (ps1 === ps2) {  //檢查密碼是否正確
+                    document.form1.submit();
+                } else {
+                    var str = document.getElementById("notsame").innerHTML = "密碼輸入錯誤";
+                }
             }
+
         });
 
         <?php
