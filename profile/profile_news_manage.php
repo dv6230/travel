@@ -79,7 +79,7 @@ $per = 10; //每個頁面10筆資料
                 $result = $query->fetchAll();
 
                 foreach ($result as $row) {
-                    $str = '        <form action="profile_news_edit.php" method="POST">
+                    $str = '<form action="profile_news_edit.php" method="POST">
                     <input type="text" name="article_id" value="';
 
                     $str2 = '" hidden>

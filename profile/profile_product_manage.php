@@ -35,7 +35,13 @@ include '../mydatabase.php';
 
 <body>
     <?php include '../index_navbar.php'; ?>
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white ml-5 mb-0 ">
+            <li class="breadcrumb-item"><a href="http://localhost/travel/login_profile.php?type=center">會員中心</a></li>
+            <li class="breadcrumb-item"><a href="http://localhost/travel/login_profile.php?type=else">其他</a></li>
+            <li class="breadcrumb-item active" aria-current="page">景點列表</li>
+        </ol>
+    </nav>
     <div class="container-fluid">
         <div class="row mt-5 ">
             <div class="col-md-3 pl-5 ml-2">
@@ -75,7 +81,7 @@ include '../mydatabase.php';
                                         </label>
                                     <?php endif; ?>
                                     <br>
-                                    <a href="#" class="btn btn-primary">編輯</a>
+                                    <a href="profile_product_edit.php?tid=<?php echo $value['id']; ?>" class="btn btn-primary">編輯</a>
                                 </div>
                             </div>
                         </div>
