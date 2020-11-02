@@ -18,8 +18,10 @@ if (isset($_POST['title'])  && isset($_POST['id']) && isset($_POST['content'])  
     require '../tools/manager_product_upload.php';
     $update = new product_update();
     $update->update($_POST['title'], $_POST['content'], $_POST['price'], $isshow, $_POST['id']);
-    header('Location:profile_product_manage.php');    
+    header('Location:profile_product_manage.php');
 }
+
+
 
 //查詢資料
 if (isset($_GET['tid'])) {
@@ -63,6 +65,9 @@ if (isset($_GET['tid'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- JQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>旅遊編輯</title>
     <style>
         nav.navbar {
@@ -89,7 +94,7 @@ if (isset($_GET['tid'])) {
         <?php if ($hasdata == true) : ?>
 
             <form action="profile_product_edit.php" method="POST">
-                <input type="text" class="form-control" value="<?php echo $strarray['id']; ?>" hidden name="id">
+                <input type="text" class="form-control" value="<?php echo $strarray['id']; ?>" hidden name="id" id="attractions_id">
                 <div class="form-group">
                     <label for="title">標題</label>
                     <input type="text" class="form-control" value="<?php echo $strarray['title']; ?>" id="title" aria-describedby="標題" name="title" required>
@@ -99,9 +104,8 @@ if (isset($_GET['tid'])) {
                     <label for="" class="d-block">圖片展示</label>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <img src="../product_image/<?php echo $strarray['image_name'] ?>" class="" height="360px" alt="Responsive image">
+                        <img src="../product_image/<?php echo $strarray['image_name'] ?>" class="" height="360px" style="max-width:100%;" alt="Responsive image">
                     </div>
-
                 </div>
 
                 <div class="form-group">
@@ -119,20 +123,31 @@ if (isset($_GET['tid'])) {
                     <label class="form-check-label" for="exampleCheck1">是否展示</label>
                 </div>
 
+                <button type="submit" class="btn btn-primary col-md-2 mb-2">確認</button>
 
+                <button class="btn btn-danger float-right col-md-2 mb-2" id="del">刪除</button>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         <?php endif; ?>
-
-
+        <div class="m-5 p-0"></div>
     </div>
 
-
+    <script>
+        $(document).ready(function() {
+            $('#del').click(function() {
+                event.preventDefault();
+                if (confirm("是否刪除此筆資料")) {
+                    $.post("http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/tools/product_update.php", {
+                        del: $('#attractions_id').val()
+                    });
+                    window.location.replace("http://<?php echo $_SERVER['SERVER_NAME'] ?>/travel/profile/profile_product_manage.php");
+                }
+            });
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
