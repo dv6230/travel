@@ -33,15 +33,11 @@ if (isset($_POST['del'])) {
 
     $image_name = '123';
     foreach ($result as $row) {
-        $image_name = $row['iamge_name'];
+        $image_name = $row['image_name'];
     }
-
-    $file = fopen($image_name . '.txt', 'a');
-    fclose($file);
-
-    //unlink('../product_image/'.$image_name);
-    /*
+    unlink('../product_image/'.$image_name);
+    
     $statement = $conn->prepare("DELETE FROM `attractions` WHERE id = ?");
     $statement->execute(array($_POST['del']));
-    */
+    
 }
