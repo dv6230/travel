@@ -6,33 +6,49 @@ session_start();
 require '../tools/identify.php';
 $identity = new identify();
 
+//預設資料
 $hasdata = false;
 
-//查詢資料
-if (!isset($_GET['tid'])) header("Location:profile_center.php");;
-$tid = $_GET['tid'];
-require '../mydatabase.php';
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$stmt = $conn->prepare("SELECT * FROM attractions WHERE id = ?");
-$stmt->execute(array($tid));
-$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-$count = $stmt->rowCount();
-$strarray = array();
-if ($count) {
-    foreach ($stmt as $value) {
-        $strarray['id'] = $value['id'];
-        $strarray['title'] = $value['title'];
-        $strarray['content'] = $value['content'];
-        $strarray['price'] = $value['price'];
-        $strarray['image_name']  = $value['image_name'];
-        $strarray['isshow'] = $value['isshow'];
-        $strarray['time']  = $value['time'];
-    }
-    $hasdata = true;
-} else {
-    $hasdata = false;
+//更改資料
+if (isset($_POST['title'])  && isset($_POST['id']) && isset($_POST['content'])  && isset($_POST['price'])) {
+
+    $isshow = false;
+    isset($_POST['isshow']) ? $isshow = true : $isshow = false;
+
+    require '../tools/manager_product_upload.php';
+    $update = new product_update();
+    $update->update($_POST['title'], $_POST['content'], $_POST['price'], $isshow, $_POST['id']);
+    header('Location:profile_product_manage.php');    
 }
+
+//查詢資料
+if (isset($_GET['tid'])) {
+    $tid = $_GET['tid'];
+    require '../mydatabase.php';
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT * FROM attractions WHERE id = ?");
+    $stmt->execute(array($tid));
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $count = $stmt->rowCount();
+    $strarray = array();
+    if ($count) {
+        foreach ($stmt as $value) {
+            $strarray['id'] = $value['id'];
+            $strarray['title'] = $value['title'];
+            $strarray['content'] = $value['content'];
+            $strarray['price'] = $value['price'];
+            $strarray['image_name']  = $value['image_name'];
+            $strarray['isshow'] = $value['isshow'];
+            $strarray['time']  = $value['time'];
+        }
+        $hasdata = true;
+    } else {
+        $hasdata = false;
+    }
+}
+//header("Location:profile_center.php");
+
 
 ?>
 
@@ -72,7 +88,8 @@ if ($count) {
         </nav>
         <?php if ($hasdata == true) : ?>
 
-            <form>
+            <form action="profile_product_edit.php" method="POST">
+                <input type="text" class="form-control" value="<?php echo $strarray['id']; ?>" hidden name="id">
                 <div class="form-group">
                     <label for="title">標題</label>
                     <input type="text" class="form-control" value="<?php echo $strarray['title']; ?>" id="title" aria-describedby="標題" name="title" required>
@@ -89,7 +106,7 @@ if ($count) {
 
                 <div class="form-group">
                     <label for="a_content">內容描述</label>
-                    <textarea class="form-control" id="a_content" rows="10" name="text_content" required><?php echo  $strarray['content'] ?></textarea>
+                    <textarea class="form-control" id="a_content" rows="10" name="content" required><?php echo  $strarray['content'] ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -98,7 +115,7 @@ if ($count) {
                 </div>
 
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" <?php if ($strarray['isshow'] == true) echo 'checked'; ?>>
+                    <input type="checkbox" class="form-check-input" name="isshow" id="exampleCheck1" value="1" <?php if ($strarray['isshow'] == true) echo 'checked'; ?>>
                     <label class="form-check-label" for="exampleCheck1">是否展示</label>
                 </div>
 

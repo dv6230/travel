@@ -34,12 +34,28 @@ class manager_product_upload
         return $err;
     }
 
-    function process_content($title, $content, $image_name ,$price)
+    function process_content($title, $content, $image_name, $price)
     {
         require '../mydatabase.php';
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $statement = $conn->prepare("INSERT INTO `attractions`(`title`, `content`, `image_name` ,`price`) VALUES (?,?,?,?)");
-        $statement->execute(array($title, $content, $image_name,$price));
+        $statement->execute(array($title, $content, $image_name, $price));
     }
+}
+
+class product_update
+{
+    function update($title,$content,$price,$isshow,$product_id)
+    {
+        require '../mydatabase.php';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $conn->prepare("UPDATE attractions SET title=?,content=?,price=?,isshow=? WHERE id=?");
+        $statement->execute(array($title, $content, $price,$isshow,$product_id)); 
+    }
+}
+
+class product_delete
+{
 }
