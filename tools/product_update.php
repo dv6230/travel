@@ -9,7 +9,7 @@ if (!($auth > 0)) {
     header("Location:profile_center.php");
 }
 
-if (isset($_POST['isshow']) && isset($_POST['product_id'])&&$auth >0) {
+if (isset($_POST['isshow']) && isset($_POST['product_id']) && $auth > 0) {
     $isshow = $_POST['isshow'];
     $product_id = $_POST['product_id'];
 
@@ -18,4 +18,30 @@ if (isset($_POST['isshow']) && isset($_POST['product_id'])&&$auth >0) {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $conn->prepare("UPDATE attractions SET isshow = ? WHERE id = ? ");
     $statement->execute(array($isshow, $product_id));
+}
+
+if (isset($_POST['del'])) {
+    require_once '../mydatabase.php';
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $pid = $_POST['del'];
+
+    $sql = "SELECT * FROM `attractions` WHERE id = $pid ";
+    $statement = $conn->query($sql);
+    $result = $statement->fetchALL(PDO::FETCH_ASSOC);
+
+    $image_name = '123';
+    foreach ($result as $row) {
+        $image_name = $row['iamge_name'];
+    }
+
+    $file = fopen($image_name . '.txt', 'a');
+    fclose($file);
+
+    //unlink('../product_image/'.$image_name);
+    /*
+    $statement = $conn->prepare("DELETE FROM `attractions` WHERE id = ?");
+    $statement->execute(array($_POST['del']));
+    */
 }
