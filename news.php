@@ -5,6 +5,25 @@ require_once 'mydatabase.php';
 $per = 10; //每個頁面10筆資料
 ?>
 
+<?php
+
+if (isset($_GET['page'])) {
+    $getpage = $_GET['page'];
+} else {
+    $getpage = 1;
+}
+
+$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$page = ($getpage - 1) * 10; //從第1筆資料開始搜尋  
+$sql = "SELECT title,insert_time,theme FROM article ORDER BY  insert_time DESC , id DESC LIMIT $page,$per";
+
+// 運行 SQL
+$query  = $conn->query($sql);
+$result = $query->fetchAll();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,39 +42,28 @@ $per = 10; //每個頁面10筆資料
     <div class="container">
 
         <div class="mt-5 mb-5 p-1"></div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col" style="width:40%">標題</th>
-                    <th scope="col" style="width:35%">發布日期</th>
-                    <th scope="col">分類</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
 
-                if (isset($_GET['page'])) {
-                    $getpage = $_GET['page'];
-                } else {
-                    $getpage = 1;
-                }
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <ul class="m-0 p-0">
+                    <li class="w-45 d-inline-block font-weight-bold">標題</li>
+                    <li class="w-35 d-inline-block font-weight-bold">發布日期</li>
+                    <li class="w-20 d-inline-block font-weight-bold">分類</li>
+                </ul>
+            </li>
 
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                // set the PDO error mode to exception
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $page = ($getpage - 1) * 10; //從第1筆資料開始搜尋  
-                $sql = "SELECT title,insert_time,theme FROM article ORDER BY  insert_time DESC , id DESC LIMIT $page,$per";
+            <?php foreach ($result as $row) : ?>
+                <li class="list-group-item">
+                    <ul class="m-0 p-0">
+                        <li class="w-45 d-inline-block font-weight-bold"><a href="news_detail.php"><?php echo $row['title'] ?></a></li>
+                        <li class="w-35 d-inline-block font-weight-bold"><?php echo $row['insert_time'] ?></li>
+                        <li class="w-20 d-inline-block font-weight-bold"><?php echo $row['theme'] ?></li>
+                    </ul>
+                </li>
+            <?php endforeach; ?>
 
-                // 運行 SQL
-                $query  = $conn->query($sql);
-                $result = $query->fetchAll();
+        </ul>
 
-                foreach ($result as $row) {
-                    echo '<tr><td>' . $row['title'] . '</td><td>' . $row['insert_time'] . '</td><td>' . $row['theme'] . '</td></tr>';
-                }
-                ?>
-            </tbody>
-        </table>
         <?php
         require_once 'tools/count_page_tool.php';
         $obj_page = new count_page();
@@ -95,6 +103,7 @@ $per = 10; //每個頁面10筆資料
 
             </ul>
         </nav>
+
     </div>
 
     <!-- Optional JavaScript -->
