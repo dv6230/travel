@@ -19,6 +19,7 @@ if (isset($_POST['title'])  && isset($_POST['id']) && isset($_POST['content'])  
     $update = new product_update();
     $update->update($_POST['title'], $_POST['content'], $_POST['price'], $isshow, $_POST['id']);
     header('Location:profile_product_manage.php');
+    
 }
 
 
