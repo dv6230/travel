@@ -17,7 +17,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $page = ($getpage - 1) * 10; //從第1筆資料開始搜尋  
-$sql = "SELECT title,insert_time,theme FROM article ORDER BY  insert_time DESC , id DESC LIMIT $page,$per";
+$sql = "SELECT id,title,insert_time,theme FROM article ORDER BY  insert_time DESC , id DESC LIMIT $page,$per";
 
 // 運行 SQL
 $query  = $conn->query($sql);
@@ -55,13 +55,14 @@ $result = $query->fetchAll();
             <?php foreach ($result as $row) : ?>
                 <li class="list-group-item">
                     <ul class="m-0 p-0">
-                        <li class="w-45 d-inline-block font-weight-bold"><a href="news_detail.php"><?php echo $row['title'] ?></a></li>
+                        <li class="w-45 d-inline-block font-weight-bold"><a href="news_detail.php?article=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a></li>
                         <li class="w-35 d-inline-block font-weight-bold"><?php echo $row['insert_time'] ?></li>
                         <li class="w-20 d-inline-block font-weight-bold"><?php echo $row['theme'] ?></li>
                     </ul>
                 </li>
             <?php endforeach; ?>
 
+            
         </ul>
 
         <?php
