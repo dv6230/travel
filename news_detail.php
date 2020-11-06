@@ -1,11 +1,12 @@
 <?php
-
+$novalue = '<h2>查無資料</h2>';
 if (isset($_GET['article'])) {
-    $article = $_GET['article'];
+    $article_id = $_GET['article'];
     require_once 'mydatabase.php';
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * From article WHERE id = $article_id";
+    $stmt = $conn->query($sql);
 }
 
 ?>
@@ -29,7 +30,13 @@ if (isset($_GET['article'])) {
     <?php include 'index_navbar.php' ?>
     <div class="container">
 
-
+        <?php if (!$stmt->rowCount() > 0) : ?>
+            <div>
+                <h2>1324</h2>
+            </div>
+        <?php else : ?>
+            <?php echo $novalue; ?>
+        <?php endif; ?>
 
     </div>
 
