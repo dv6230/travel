@@ -1,5 +1,6 @@
 <?php
 $novalue = '<h2>查無資料</h2>';
+$strarray = array();
 if (isset($_GET['article'])) {
     $article_id = $_GET['article'];
     require_once 'mydatabase.php';
@@ -7,6 +8,13 @@ if (isset($_GET['article'])) {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * From article WHERE id = $article_id";
     $stmt = $conn->query($sql);
+
+    foreach ($stmt as $value) {
+        $strarray['id'] = $value['id'];
+        $strarray['title'] = $value['title'];
+        $strarray['content'] = $value['content'];
+        $strarray['theme'] = $value['theme'];
+    }
 }
 
 ?>
@@ -29,11 +37,11 @@ if (isset($_GET['article'])) {
 <body>
     <?php include 'index_navbar.php' ?>
     <div class="container">
-
-        <?php if (!$stmt->rowCount() > 0) : ?>
-            <div>
-                <h2>1324</h2>
-            </div>
+        <div class="p-0 m-5"></div>
+        <?php if (sizeof($strarray) > 0) : ?>
+            <h1 class="m-2"><?php echo $strarray['title'] ?></h1 class="m-2">
+            <h3><span class="badge mt-3 "><?php echo $strarray['theme'] ?></span></h3>
+            <p class="mt-4"><?php echo $strarray['content'] ?></p>
         <?php else : ?>
             <?php echo $novalue; ?>
         <?php endif; ?>
@@ -43,7 +51,23 @@ if (isset($_GET['article'])) {
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            var theme = $('span').text();
+            if (theme == '焦點') {
+                $('span').addClass('badge-warning');
+            } else if (theme == '新聞') {
+                $('span').addClass('badge-success');
+            } else if (theme == '活動') {
+                $('span').addClass('badge-primary');
+            } else if (theme == '介紹') {
+                $('span').addClass('badge-info');
+            } else {
+                $('span').addClass('badge-secondary');
+            }
 
+        });
+    </script>
 </body>
 
 </html>
