@@ -13,6 +13,7 @@ if (isset($_GET['page'])) {
     $getpage = 1;
 }
 
+
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -41,28 +42,29 @@ $result = $query->fetchAll();
 <body>
     <div class="container">
 
-        <div class="mt-5 mb-5 p-1"></div>
+        <div class="mt-3 p-1 ">
+        </div>
 
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <ul class="m-0 p-0">
-                    <li class="w-45 d-inline-block font-weight-bold">標題</li>
-                    <li class="w-35 d-inline-block font-weight-bold">發布日期</li>
-                    <li class="w-20 d-inline-block font-weight-bold">分類</li>
+                    <li class="w-s1 d-inline-block font-weight-bold">標題</li>
+                    <li class="w-s2 d-inline-block font-weight-bold">發布日期</li>
+                    <li class="w-s3 d-inline-block font-weight-bold">分類</li>
                 </ul>
             </li>
 
             <?php foreach ($result as $row) : ?>
                 <li class="list-group-item">
                     <ul class="m-0 p-0">
-                        <li class="w-45 d-inline-block font-weight-bold"><a href="news_detail.php?article=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a></li>
-                        <li class="w-35 d-inline-block font-weight-bold"><?php echo $row['insert_time'] ?></li>
-                        <li class="w-20 d-inline-block font-weight-bold"><?php echo $row['theme'] ?></li>
+                        <li class="w-s1 d-inline-block font-weight-bold"><a href="news_detail.php?article=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a></li>
+                        <li class="w-s2 d-inline-block font-weight-bold"><?php echo $row['insert_time'] ?></li>
+                        <li class="w-s3 d-inline-block font-weight-bold"><?php echo $row['theme'] ?></li>
                     </ul>
                 </li>
             <?php endforeach; ?>
 
-            
+
         </ul>
 
         <?php

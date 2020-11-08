@@ -35,8 +35,10 @@ if (isset($_GET['article'])) {
 </head>
 
 <body>
+
     <?php include 'index_navbar.php' ?>
-    <div class="container">
+    <div class="container p-0 ">
+        <a href="#" onclick="goback()" class="mt-2 d-inline-block">返回</a>
         <div class="p-0 m-5"></div>
         <?php if (sizeof($strarray) > 0) : ?>
             <h1 class="m-2"><?php echo $strarray['title'] ?></h1 class="m-2">
@@ -67,6 +69,10 @@ if (isset($_GET['article'])) {
             }
 
         });
+
+        function goback() {
+            window.history.back();
+        }
     </script>
 </body>
 
