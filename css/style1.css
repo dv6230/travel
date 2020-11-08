@@ -41,18 +41,20 @@ li {
     width: 281px;
 }
 
-ul .w-45 {
-    width: 40%;
-}
-
-ul .w-35 {
-    width: 35%;
+ul .w-s1 {
+    width: 60%;
     display: inline-block;
 }
 
-ul .w-20 {
-    width: auto;
+ul .w-s2 {
+    width: 30%;
     display: inline-block;
+}
+
+ul .w-s3 {
+    width: auto;  
+    
+    text-align: center;
 }
 
 @media (max-width: 600px) {
