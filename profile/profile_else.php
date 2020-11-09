@@ -4,7 +4,7 @@ if (!($auth > 0)) {
 }
 ?>
 
-<div class="card m-2">
+<div class="card m-2 ">
     <div class="card-body">
         <div class="row d-flex">
             <h5 class="d-inline d-flex align-items-center m-0 ml-3">新增消息</h5>
@@ -13,7 +13,7 @@ if (!($auth > 0)) {
 
     </div>
 </div>
-<div class="card m-2">
+<div class="card m-2 ">
     <div class="card-body">
         <div class="row d-flex">
             <h5 class="d-inline d-flex align-items-center m-0 ml-3">消息管理</h5>
