@@ -42,7 +42,7 @@ if (isset($_GET['article'])) {
         <div class="p-0 m-5"></div>
         <?php if (sizeof($strarray) > 0) : ?>
             <h1 class="m-2"><?php echo $strarray['title'] ?></h1 class="m-2">
-            <h3><span class="badge mt-3 "><?php echo $strarray['theme'] ?></span></h3>
+            <h3><span class="badge mt-3 theme-style"><?php echo $strarray['theme'] ?></span></h3>
             <p class="mt-4"><?php echo $strarray['content'] ?></p>
         <?php else : ?>
             <?php echo $novalue; ?>
@@ -55,17 +55,17 @@ if (isset($_GET['article'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
-            var theme = $('span').text();
+            var theme = $('.theme-style').text();
             if (theme == '焦點') {
-                $('span').addClass('badge-warning');
+                $('.theme-style').addClass('badge-warning');
             } else if (theme == '新聞') {
-                $('span').addClass('badge-success');
+                $('.theme-style').addClass('badge-success');
             } else if (theme == '活動') {
-                $('span').addClass('badge-primary');
+                $('.theme-style').addClass('badge-primary');
             } else if (theme == '介紹') {
-                $('span').addClass('badge-info');
+                $('.theme-style').addClass('badge-info');
             } else {
-                $('span').addClass('badge-secondary');
+                $('.theme-style').addClass('badge-secondary');
             }
 
         });
