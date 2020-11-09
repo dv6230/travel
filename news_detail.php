@@ -67,7 +67,6 @@ if (isset($_GET['article'])) {
             } else {
                 $('span').addClass('badge-secondary');
             }
-
         });
 
         function goback() {
