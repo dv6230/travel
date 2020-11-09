@@ -37,10 +37,10 @@ session_start();
             <div class="card_list row">
                 <div class="describe-content col-md-6 m-0  d-flex align-items-start flex-column">
                     <h2><?php echo $value['title']; ?></h2>
-                    <p><?php echo $value['content']; ?></p>                    
-                    <button class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</button>
+                    <p><?php echo $value['content']; ?></p>
+                    <a href="<?php echo "show_product_detail.php?id=" . $value['id']; ?>" class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
                     <div class="clearfix"></div>
-                </div>               
+                </div>
                 <div class="col-md-6 m-0 p-0">
                     <img class="describe-image img-fluid" src="<?php echo 'product_image/' . $value['image_name']; ?>" alt="">
                 </div>
