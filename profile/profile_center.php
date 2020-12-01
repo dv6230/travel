@@ -9,10 +9,10 @@ $user_id = $_SESSION['user_id'];
 
     <!-- Card content -->
     <div class="card-body pb-3">
-
-        <!-- Title -->
+        <!--
+         
         <h4 class="card-title font-weight-bold">目前森林天氣</h4>
-        <!-- Text -->
+        
         <p class="card-text" id="t-time">Mon, 12:30 PM, Mostly Sunny</p>
         <div class="d-flex justify-content-between">
             <p class="display-1 degree" id="degree"></p>
@@ -40,11 +40,11 @@ $user_id = $_SESSION['user_id'];
 
 
         <h2 id="output" class="output"></h2>
-
+        -->
     </div>
 
 </div>
-<!-- Card -->
+<!-- Card 
 <script>
     var d = new Date();
     var n = (d.getHours() * 60) + (d.getMinutes());
