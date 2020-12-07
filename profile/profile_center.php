@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])) header('Location: http://' . $_SERVER['SERVER_
 $user_id = $_SESSION['user_id'];
 ?>
 <!-- Card -->
-<h3 class='mb-3'>會員中心</h3>
+<h2 class='mb-3'>會員中心</h2>
 
 <div class="card weather-card">
 
