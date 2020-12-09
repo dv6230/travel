@@ -38,7 +38,7 @@ create_table('article', " `id` INT NOT NULL AUTO_INCREMENT ,
 `theme` VARCHAR(24) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 `insert_time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)");
 
-create_table('attractions'," `id` int(11) NOT NULL,
+create_table('attractions'," `id` int(11) NOT NULL AUTO_INCREMENT, 
 `title` varchar(48) COLLATE utf8_unicode_ci NOT NULL,
 `content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
 `price` int(11) NOT NULL DEFAULT 99999,
