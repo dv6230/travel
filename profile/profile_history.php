@@ -13,7 +13,7 @@ if (isset($_GET['page'])) {
 }
 $per = 10; //每個頁面10筆資料
 ?>
-<h3 class='mb-3'>歷史交易紀錄</h3>
+<h4 class='mb-3'>歷史交易紀錄</h4>
 <table class="table">
     <thead class="thead-dark">
         <tr>

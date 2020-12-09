@@ -19,3 +19,7 @@ nav.navbar {
         display: block;
     }
 }
+
+.text-set{
+    float: right;
+}
