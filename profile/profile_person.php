@@ -12,14 +12,14 @@ if (isset($_SESSION['user_id'])) {
 <h2 class='mb-3'>個人資料</h2>
 
 <form action="" method="POST" class="mt-2 p-3 border rounded">
-    <div class="form-group row ">
-        <label for="inputname" class="col-md-2 col-form-label text-right">姓名:</label>
+    <div class="form-group row">
+        <label for="inputname" class="col-md-2 col-form-label text-set">姓名:</label>
         <div class="col-md-4">
             <input type="text" class="form-control" id="inputname">
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputaddress" class="col-md-2 col-form-label text-right">居住城市:</label>
+        <label for="inputaddress" class="col-md-2 col-form-label text-set">居住城市:</label>
         <div class="col-md-4">
             <select class="form-control" id="city_select">
                 <option>請選擇</option>
@@ -27,19 +27,19 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div class="form-group row ">
-        <label for="inputemail" class="col-md-2 col-form-label text-right">電子郵件:</label>
+        <label for="inputemail" class="col-md-2 col-form-label text-set">電子郵件:</label>
         <div class="col-md-4">
             <input type="email" class="form-control" id="inputemail">
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputbirth" class="col-md-2 col-form-label text-right">生日:</label>
+        <label for="inputbirth" class="col-md-2 col-form-label text-set">生日:</label>
         <div class="col-md-4">
             <input type="date" class="form-control" id="birth" name="birth" value="">
         </div>
     </div>
     <div class="form-group row ">
-        <label class="col-md-2 col-form-label text-right">性別:</label>
+        <label class="col-md-2 col-form-label text-set">性別:</label>
         <div class="col-md-6 d-flex align-items-center">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="gender-male" name="gender" class="custom-control-input" value="0">
@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputPassword3" class="col-md-2 col-form-label text-right">電話:</label>
+        <label for="inputPassword3" class="col-2 col-form-label text-set">電話:</label>
         <div class="col-md-4">
             <input type="number" class="form-control" id="inputPassword3">
         </div>

@@ -51,7 +51,7 @@ require 'tools/path_classify.php';
       <div class="col-md-9">
         <div class="content w-100">
           <?php
-          $path = new backstage();
+          $path = new backstage(); //頁面分類
           if (isset($_GET['type'])) {
             $tp = $_GET['type'];
             $path->getbackstage($tp, $auth);
