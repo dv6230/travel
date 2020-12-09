@@ -3,14 +3,18 @@ if (!isset($_SESSION['user_id'])) header('Location: http://' . $_SERVER['SERVER_
 $user_id = $_SESSION['user_id'];
 ?>
 <!-- Card -->
-<h3 class='mb-3'>會員中心</h3>
+<h2 class='mb-3'>會員中心</h2>
 
 <div class="card weather-card">
 
     <!-- Card content -->
     <div class="card-body pb-3">
         <!--
+<<<<<<< HEAD
         
+=======
+         
+>>>>>>> 8015690f5d967c88de45dae7176664bcbeb6c624
         <h4 class="card-title font-weight-bold">目前森林天氣</h4>
         
         <p class="card-text" id="t-time">Mon, 12:30 PM, Mostly Sunny</p>
@@ -44,7 +48,7 @@ $user_id = $_SESSION['user_id'];
     </div>
 
 </div>
-<!-- Card -->
+<!-- Card 
 <script>
     var d = new Date();
     var n = (d.getHours() * 60) + (d.getMinutes());
