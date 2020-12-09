@@ -33,7 +33,7 @@
                                 </div>
                             </li>';
                 if (isset($_SESSION['user_id'])) {
-                    echo $str_is_in;
+                    echo $str_is_in;                    
                 } else {
                     echo $str_is_out;
                 }

@@ -9,10 +9,10 @@ $user_id = $_SESSION['user_id'];
 
     <!-- Card content -->
     <div class="card-body pb-3">
-
-        <!-- Title -->
+        <!--
+        
         <h4 class="card-title font-weight-bold">目前森林天氣</h4>
-        <!-- Text -->
+        
         <p class="card-text" id="t-time">Mon, 12:30 PM, Mostly Sunny</p>
         <div class="d-flex justify-content-between">
             <p class="display-1 degree" id="degree"></p>
@@ -23,7 +23,7 @@ $user_id = $_SESSION['user_id'];
             <p class="weet"><i class="fas fa-tint fa-lg text-info pr-2 weet"></i>3</p>
             <p class="wind"><i class="fas fa-leaf fa-lg grey-text pr-2 wind"></i>21</p>
         </div>
-        
+
         <p class="t_load">行徑時間</p>
         <div class="progress md-progress">
 
@@ -40,7 +40,7 @@ $user_id = $_SESSION['user_id'];
 
 
         <h2 id="output" class="output"></h2>
-
+        -->
     </div>
 
 </div>
