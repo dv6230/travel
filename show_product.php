@@ -32,20 +32,25 @@ session_start();
         $stmt->execute();
         $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
+        <div class="row">
 
-        <?php foreach ($result_list as $value) : ?>
-            <div class="card_list row">
-                <div class="describe-content col-md-6 m-0  d-flex align-items-start flex-column">
-                    <h2><?php echo $value['title']; ?></h2>
-                    <p><?php echo $value['content']; ?></p>
-                    <a href="<?php echo "show_product_detail.php?id=" . $value['id']; ?>" class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
-                    <div class="clearfix"></div>
+
+
+            <?php foreach ($result_list as $value) : ?>
+                <div class="col-md-4">                   
+                    <div class="card p-0">
+                        <img src="<?php echo 'product_image/' . $value['image_name']; ?>" class="card-img-top w-100" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $value['title']; ?></h5>
+                            <a href="<?php echo "show_product_detail.php?id=" . $value['id']; ?>" class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 m-0 p-0">
-                    <img class="describe-image img-fluid" src="<?php echo 'product_image/' . $value['image_name']; ?>" alt="">
-                </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+
+
+
 
     </div>
 
