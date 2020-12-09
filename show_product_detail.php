@@ -16,7 +16,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $conn->prepare("SELECT * FROM attractions WHERE id = ? AND isshow = true");
 $stmt->execute([$_GET['id']]);
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-foreach($stmt as $row){
+foreach ($stmt as $row) {
     $title = $row['title'];
     $content = $row['content'];
     $price = $row['price'];
@@ -44,12 +44,24 @@ $result = null;
 <body>
     <?php include 'index_navbar.php'; ?>
     <div class="container">
-        <div class="col-md-4 mt-5">
-            <h1><?php echo $title ?></h1>
+        <div>
+            <a href="javascript:history.back()" class="m-2 d-inline-block">返回</a>
         </div>
-        <div class="col-md-8"></div>
-    </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <h1><?php echo $title ?></h1>
+                <div class="p-2"></div>
+                <h3 class="d-inline">售價 <?php echo $price ?></h3>
+                <a href="#" class="btn btn-danger float-right">前往下單</a>
 
+            </div>
+            <div class="col-md-8">
+                <p class="mt-5 p-3"><?php echo $content ?></p>
+                <img src="<?php echo 'product_image/' . $image_name ?>" alt="" class="w-100">
+            </div>
+        </div>
+    </div>
+    <div class="p-3"></div>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
