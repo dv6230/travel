@@ -44,8 +44,8 @@ $result = null;
 <body>
     <?php include 'index_navbar.php'; ?>
     <div class="container">
-        <div class="col-md-4">
-            <h1><?php echo ''?></h1>
+        <div class="col-md-4 mt-5">
+            <h1><?php echo $title ?></h1>
         </div>
         <div class="col-md-8"></div>
     </div>
