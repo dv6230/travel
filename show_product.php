@@ -33,16 +33,13 @@ session_start();
         $result_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <div class="row">
-
-
-
             <?php foreach ($result_list as $value) : ?>
-                <div class="col-md-4">                   
+                <div class="col-md-3 mb-5">                   
                     <div class="card p-0">
                         <img src="<?php echo 'product_image/' . $value['image_name']; ?>" class="card-img-top w-100" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $value['title']; ?></h5>
-                            <a href="<?php echo "show_product_detail.php?id=" . $value['id']; ?>" class="btn btn-outline-primary mt-auto ml-auto m-1" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
+                        <div class="card-body p-0">
+                            <h4 class="card-title p-3"><?php echo $value['title']; ?></h4>
+                            <a href="<?php echo "show_product_detail.php?pid=" . $value['id']; ?>" class="btn btn-success mt-auto m-0 w-100" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
                         </div>
                     </div>
                 </div>

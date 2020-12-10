@@ -1,8 +1,12 @@
 <?php
 session_start();
+
 if (!isset($_GET['pid'])) {
     header("Location:show_product.php");
 }
+
+//if (!isset($_SESSION['user_id'])) header("Location:login_page.php?from=".$_SERVER['REQUEST_URI']);
+
 ?>
 
 <!doctype html>

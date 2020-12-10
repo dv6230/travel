@@ -2,9 +2,10 @@
 session_start();
 require_once 'mydatabase.php';
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['pid'])) {
     header("Location:show_product.php");
 }
+
 
 $title = '';
 $content = '';
@@ -14,9 +15,9 @@ $image_name = '';
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $conn->prepare("SELECT * FROM attractions WHERE id = ? AND isshow = true");
-$stmt->execute([$_GET['id']]);
+$stmt->execute([$_GET['pid']]);
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-foreach ($stmt as $row) {    
+foreach ($stmt as $row) {
     $title = $row['title'];
     $content = $row['content'];
     $price = $row['price'];
@@ -52,7 +53,7 @@ $result = null;
                 <h1><?php echo $title ?></h1>
                 <div class="p-2"></div>
                 <h3 class="d-inline">售價 <?php echo $price ?></h3>
-                <a href="<?php echo 'product_purchare.php?pid='.$_GET['id'] ?>" class="btn btn-danger float-right">前往下單</a>
+                <a href="<?php echo 'product_purchare.php?pid='.$_GET['pid'] ?>" class="btn btn-danger float-right">前往下單</a>
 
             </div>
             <div class="col-md-8">
