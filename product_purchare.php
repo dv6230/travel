@@ -29,7 +29,7 @@ $result = null;
 ?>
 
 <!doctype html>
-<html lang="zh">
+<html lang="zh-Hant">
 
 <head>
     <!-- Required meta tags -->

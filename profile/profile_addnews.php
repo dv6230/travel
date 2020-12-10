@@ -53,7 +53,7 @@ if (isset($_POST['title']) && isset($_POST['text_content']) && isset($_POST['the
 ?>
 
 <!doctype html>
-<html lang="zh">
+<html lang="zh-Hant">
 
 <head>
     <!-- Required meta tags -->

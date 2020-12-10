@@ -23,7 +23,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
 ?>
 
 <!doctype html>
-<html lang="zh">
+<html lang="zh-Hant">
 
 <head>
     <!-- Required meta tags -->

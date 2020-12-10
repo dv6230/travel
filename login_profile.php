@@ -4,7 +4,7 @@ if (!isset($_SESSION['user_id'])) header("Location:login_page.php");
 require 'tools/path_classify.php';
 ?>
 <!doctype html>
-<html lang="zh">
+<html lang="zh-Hant">
 
 <head>
   <!-- Required meta tags -->
