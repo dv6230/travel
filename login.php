@@ -16,9 +16,16 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
         while ($row = $result->fetch_assoc()) {
             if ($row["password"] == $pwd) {
                 echo '成功登入';
-                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_id'] = $row['id'];                
                 $_SESSION['auth'] = $row['auth'];
-                header('Location:login_page.php');
+
+                if(empty($_POST['from'])){
+                    header('Location:login_page.php');                    
+                }
+                else{
+                    header('Location:'.$_POST['from']);
+                }
+
             } else {
                 $_SESSION['wrong'] = '帳號或密碼輸入錯誤';
                 header('Location:login_page.php');

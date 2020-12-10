@@ -22,19 +22,21 @@
 
 <body>
     <?php
-        session_start();
-        include 'index_navbar.php';
+    session_start();
+    include 'index_navbar.php';
     ?>
 
     <?php
     $error = '';
-    if(isset($_SESSION['wrong'])) $error =  $_SESSION['wrong'];   
-   
+    $from = '';
+    if (isset($_SESSION['wrong'])) $error =  $_SESSION['wrong'];
+    if (isset($_GET['from'])) $from = $_GET['from'];
     $str = '<div class="container-fluid">
                 <div class="d-flex justify-content-center h-100">
                     <div class="align-self-center login-panel">
                         <h2>帳號登入</h2>
                         <form action="login.php" method="POST" class="p-2 login_form">
+                            <input type="text" name="from" hidden value="' . $from . '" class="w-100">
                             <div>
                                 <label for="acnt" class="mb-0 mt-2">帳號</label>
                                 <input type="text" name="acnt" autocomplete="off" class="w-100" required>
@@ -43,7 +45,7 @@
                                 <label for="pwd" class="mb-0 mt-2">密碼</label>
                                 <input type="password" name="pwd" autocomplete="off" class="w-100" required>
                             </div>
-                            <div class="text-danger">'.$error.'</div>
+                            <div class="text-danger">' . $error . '</div>
                             <a href="create_account.php" class="float-right">註冊帳號</a>                
                             
                             <input type="submit" class="w-100 p-1 mt-4 btn btn-primary ">
@@ -52,7 +54,11 @@
                 </div>
             </div>';
     if (isset($_SESSION['user_id'])) {
-        header("Location:login_profile.php");
+        if (isset($_GET['from'])) {
+            header("Location:" . $_GET['from']);
+        } else {
+            header("Location:login_profile.php");
+        }
     } else {
         echo $str;
     }
