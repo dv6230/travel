@@ -20,7 +20,7 @@ if (isset($_GET['article'])) {
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <!-- Required meta tags -->

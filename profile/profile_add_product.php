@@ -73,7 +73,7 @@ if (isset($_POST['title']) && isset($_POST['content'])  && isset($_POST['price']
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <!-- Required meta tags -->

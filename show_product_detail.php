@@ -29,7 +29,7 @@ $result = null;
 
 
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <!-- Required meta tags -->

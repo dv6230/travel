@@ -16,7 +16,7 @@ $per = 10; //每個頁面10筆資料
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <!-- Required meta tags -->
