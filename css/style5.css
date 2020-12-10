@@ -1,0 +1,29 @@
+nav.navbar {
+    background-color: rgba(10, 10, 10, 0.9);
+}
+
+.head_img {
+    height: 480px;
+    width: 100%;
+    object-fit: cover;
+}
+
+footer {
+    background-color: rgb(72, 109, 77)
+}
+
+.prd-border{
+    border-bottom: 2px solid rgb(19, 160, 89);
+}
+
+ul{
+    list-style-type: none;
+}
+
+.ul-title{
+    margin-bottom: 20px;
+}
+
+.ul-content{
+    border-bottom: 1px solid black;
+}
