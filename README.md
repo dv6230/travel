@@ -1,4 +1,5 @@
 # 用 PHP 撰寫網站
+將此專案下載後，將此資料夾放入 xampp\htdocs 資料夾內
 執行check_table.php 可先建立資料表 與 預設帳號
 
 
