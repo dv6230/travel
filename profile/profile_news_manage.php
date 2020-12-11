@@ -49,7 +49,7 @@ $per = 10; //每個頁面10筆資料
         <h2 class="m-4">消息管理</h2>
         <div class="mt-3 mb-3 p-1"></div>
 
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr class="bg-primary text-light">
                     <th scope="col" style="width:15%">編號</th>
@@ -89,7 +89,7 @@ $per = 10; //每個頁面10筆資料
                         </svg>
                     </button>
                 </form>'; //編輯 button
-                    echo '<tr><td>' . $row['id'] . '</td><td>' . $row['title'] . '</td><td>' . $row['insert_time'] . '</td> <td>' . $row['theme'] . '</td> <td>' . $str . $row['id'] . $str2 . '</td> </tr>';
+                    echo '<tr class=""><td>' . $row['id'] . '</td><td>' . $row['title'] . '</td><td>' . $row['insert_time'] . '</td> <td>' . $row['theme'] . '</td> <td>' . $str . $row['id'] . $str2 . '</td> </tr>';
                 }
                 ?>
             </tbody>

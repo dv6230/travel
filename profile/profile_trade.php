@@ -43,13 +43,14 @@ include '../mydatabase.php';
             </ol>
         </nav>
         <h2 class="m-4">客戶交易紀錄</h2>
-        <table class="table">
+        <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">編號</th>
                     <th scope="col">名稱</th>
                     <th scope="col">日期</th>
                     <th scope="col">價錢</th>
+                    <th scope="col">客戶編號</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,15 +58,16 @@ include '../mydatabase.php';
                 <?php
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $stmt = $conn->prepare("SELECT * FROM transaction WHERE 1 ORDER BY date DESC , id ASC ");
+                $stmt = $conn->prepare("SELECT A.id AS id , B.title AS title , A.date AS date , A.price AS price , A.buyer_id AS buyer FROM transaction A INNER JOIN attractions B ON A.product_id = B.id WHERE 1 ORDER BY date DESC , id ASC ");
                 $stmt->execute();
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 foreach ($stmt as $row) {
                     echo "<tr>
              <th scope='row'>" . $row['id'] . "</th>
-             <td>" . $row['name'] . "</td>
+             <td>" . $row['title'] . "</td>
              <td>" . $row['date'] . "</td>
-             <td>" . $row['price'] . "</td>
+             <td> NT$" . $row['price'] . "</td>
+             <td>" . $row['buyer'] . "</td>
              </tr>";
                 }
                 $result = null;
