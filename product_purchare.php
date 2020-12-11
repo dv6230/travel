@@ -89,7 +89,7 @@ $result = null;
                 </div>
             </div>
             --->
-            <form action="" class="mt-5" method="POST">
+            <form action="deal_purchare.php" class="mt-5" method="POST">
                 <input type="text" hidden name="shopping" value="<?php echo $_GET['pid'] ?>" >
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -129,7 +129,7 @@ $result = null;
                 </div>
                 <hr class="mb-4">
                 <div class='d-flex justify-content-center'>
-                    <button class="btn btn-primary btn-lg " type="submit">Continue to checkout</button>
+                    <button class="btn btn-primary btn-lg " type="submit">確認下單</button>
                 </div>
             </form>
 
