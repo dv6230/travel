@@ -16,10 +16,10 @@ if (isset($_POST['shopping'])) {
     foreach ($stmt as $value) {
         $item_price = $value['price'];
     }
-    /*
+    
     $stmt = $conn->prepare("INSERT INTO transaction (product_id,price,buyer_id) VALUE (?,?,?)");
     $stmt->execute([$buy_item_id, $item_price, $buyer_id]);
-    */
+    
     $success = true;
 } else {
     header("Location:index.php");
@@ -74,7 +74,7 @@ if (isset($_POST['shopping'])) {
                             </h5>
                         </div>
                         <div class="modal-footer">
-                            <a href="#" class="col-md-6 m-auto btn bg-lightgreen">確認</a>
+                            <a href="index.php" class="col-md-6 m-auto btn bg-lightgreen">確認</a>
                         </div>
                     </div>
                 </div>
