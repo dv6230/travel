@@ -26,7 +26,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
                 }
             } else {
                 $_SESSION['wrong'] = '帳號或密碼輸入錯誤';
-                //header('Location:login_page.php');
+                header('Location:login_page.php');
             }
         }
     } else {
