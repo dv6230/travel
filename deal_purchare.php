@@ -43,6 +43,17 @@ if (isset($_POST['shopping'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
     <title>訂購回報</title>
+    <style>
+        .bg-lightgreen {
+            background-color: rgb(0, 165, 0);
+            color: white;
+        }
+
+        .bg-err {
+            background-color: rgb(220, 0, 0);
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,20 +64,41 @@ if (isset($_POST['shopping'])) {
             <div class="modal fade" id="exampleModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center w-100" id="exampleModalLabel">Modal title</h5>
+                        <div class="modal-header border-0">
+                            <img src="https://www.flaticon.com/svg/static/icons/svg/390/390973.svg" class="m-3 text-center d-inline w-100 " height="64px" alt="">
                         </div>
                         <div class="modal-body">
-                            ...
+                            <h5 class="modal-title text-center w-100 h1" id="exampleModalLabel">成功</h5>
+                            <h5 class="mt-5 text-center">
+                                訂購成功，點擊確認跳轉頁面
+                            </h5>
                         </div>
                         <div class="modal-footer">
-                            <button type="button " class="col-md-6 m-auto btn btn-success">確認</button>
+                            <a href="#" class="col-md-6 m-auto btn bg-lightgreen">確認</a>
                         </div>
                     </div>
                 </div>
             </div>
         <?php } else if ($success == false) { ?>
-
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <img src="https://www.flaticon.com/svg/static/icons/svg/463/463612.svg" class="m-3 text-center d-inline w-100 " height="64px" alt="">
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="modal-title text-center w-100 h1" id="exampleModalLabe1">失敗</h5>
+                            <h5 class="mt-5 text-center">
+                                訂購失敗，請聯繫課服人員 電話 0912-345-987
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="index.php" class="col-md-6 m-auto btn bg-err">確認</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php } ?>
     </div>
 
