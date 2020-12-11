@@ -37,7 +37,7 @@ session_start();
                 <div class="col-md-3 mb-5">                   
                     <div class="card p-0">
                         <img src="<?php echo 'product_image/' . $value['image_name']; ?>" class="card-img-top w-100" alt="...">
-                        <div class="card-body p-0">
+                        <div class="card-body p-0 m-0">
                             <h4 class="card-title p-3"><?php echo $value['title']; ?></h4>
                             <a href="<?php echo "show_product_detail.php?pid=" . $value['id']; ?>" class="btn btn-success mt-auto m-0 w-100" id='<?php echo 'tarvelid' . $value['id']; ?>'>詳細資料</a>
                         </div>
