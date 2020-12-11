@@ -29,13 +29,13 @@ $per = 10; //每個頁面10筆資料
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $page1 = ($page_num - 1) * 10; //從第1筆資料開始搜尋        
-        $stmt = $conn->prepare("SELECT * FROM transaction WHERE buyers_id = $user_id  ORDER BY date DESC , id ASC LIMIT $page1,$per");
+        $stmt = $conn->prepare("SELECT * FROM transaction WHERE buyer_id = $user_id  ORDER BY date DESC , id ASC LIMIT $page1,$per");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach ($stmt as $row) {
             echo "<tr>
              <th scope='row'>" . $row['id'] . "</th>
-             <td>" . $row['name'] . "</td>
+             <td>" . $row['product_id'] . "</td>
              <td>" . $row['date'] . "</td>
              <td>" . $row['price'] . "</td>
              </tr>";
@@ -47,7 +47,7 @@ $per = 10; //每個頁面10筆資料
 
 <?php
 
-$stmt = $conn->query("SELECT COUNT(*) AS cnt FROM `transaction` WHERE buyers_id = $user_id");
+$stmt = $conn->query("SELECT COUNT(*) AS cnt FROM `transaction` WHERE buyer_id = $user_id");
 $count = 0; //文章總量
 foreach ($stmt as $row) {
     $count = $row['cnt'];
