@@ -22,6 +22,7 @@ create_table('transaction', "`id` int(11) NOT NULL AUTO_INCREMENT,
 `product_id` int(11) NOT NULL,
 `price` int(11) NOT NULL,
 `date` date NOT NULL DEFAULT current_timestamp(),
+`ord_time` time NOT NULL DEFAULT current_timestamp(),
 `buyer_id` int(11) NOT NULL,
 PRIMARY KEY (`id`)");
 
