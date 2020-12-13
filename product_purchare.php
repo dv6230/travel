@@ -94,12 +94,12 @@ $result = null;
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="cc-name">持卡人姓名</label>
-                        <input type="text" class="form-control form-bdr" id="cc-name" placeholder="" required>
+                        <input type="text" class="form-control form-bdr" id="cc-name" autocomplete="off" placeholder="" required>
 
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="cc-number">信用卡卡號</label>
-                        <input type="text" class="form-control form-bdr" id="cc-number" placeholder="" required>
+                        <input type="text" class="form-control form-bdr" maxlength="16" id="cc-number" autocomplete="off" placeholder="" required>
 
                     </div>
                 </div>
@@ -110,12 +110,12 @@ $result = null;
 
                         <div class="col-7 d-inline-block p-0">
                             <select class="custom-select form-bdr" id="year_select">
-                                <option selected>年份</option>
+                               
                             </select>
                         </div>
                         <div class="col-4 d-inline-block p-0">
                             <select class="custom-select form-bdr" id="month_select">
-                                <option selected> 月份</option>
+                                
                             </select>
                         </div>
 
@@ -123,7 +123,7 @@ $result = null;
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="cc-expiration">信用卡末三碼</label>
-                        <input type="text" class="form-control form-bdr" id="cc-cvv" placeholder="" required>
+                        <input type="text" class="form-control form-bdr" maxlength="3" autocomplete="off" id="cc-cvv" placeholder="" required>
 
                     </div>
                 </div>
