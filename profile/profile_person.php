@@ -1,21 +1,10 @@
 <?php
 
-require_once 'mydatabase.php';
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
     header("Location:login_page.php");
 }
-
-if (
-    isset($_POST['username']) && isset($_POST['usercity']) && isset($_POST['useremail'])
-    && isset($_POST['userbirth']) && isset($_POST['usergender']) && isset($_POST['userphone'])
-) {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("");
-}
-
 
 ?>
 
@@ -52,11 +41,11 @@ if (
         <label class="col-md-2 col-form-label text-set">性別:</label>
         <div class="col-md-6 d-flex align-items-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <input required name="usergender" type="radio" id="gender-male" name="gender" class="custom-control-input" value="0">
+                <input required name="usergender" type="radio" id="gender-male" name="gender" class="custom-control-input" value="1">
                 <label class="custom-control-label" for="gender-male">男性</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input name="usergender" type="radio" id="gender-female" name="gender" class="custom-control-input" value="1">
+                <input name="usergender" type="radio" id="gender-female" name="gender" class="custom-control-input" value="0">
                 <label class="custom-control-label" for="gender-female">女性</label>
             </div>
         </div>
