@@ -7,21 +7,31 @@ if (isset($_SESSION['user_id'])) {
     header("Location:login_page.php");
 }
 
+if (
+    isset($_POST['username']) && isset($_POST['usercity']) && isset($_POST['useremail'])
+    && isset($_POST['userbirth']) && isset($_POST['usergender']) && isset($_POST['userphone'])
+) {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("");
+}
+
+
 ?>
 
 <h2 class='mb-3'>個人資料</h2>
 
-<form action="" method="POST" class="mt-2 p-3 border rounded">
+<form action="profile_person.php" method="POST" class="mt-2 p-3 border rounded">
     <div class="form-group row">
         <label for="inputname" class="col-md-2 col-form-label text-set">姓名:</label>
         <div class="col-md-4">
-            <input type="text" class="form-control" id="inputname">
+            <input type="text" class="form-control" id="inputname" name="username" required>
         </div>
     </div>
     <div class="form-group row">
         <label for="inputaddress" class="col-md-2 col-form-label text-set">居住城市:</label>
         <div class="col-md-4">
-            <select class="form-control" id="city_select">
+            <select class="form-control" id="city_select" name="usercity" required>
                 <option>請選擇</option>
             </select>
         </div>
@@ -29,24 +39,24 @@ if (isset($_SESSION['user_id'])) {
     <div class="form-group row ">
         <label for="inputemail" class="col-md-2 col-form-label text-set">電子郵件:</label>
         <div class="col-md-4">
-            <input type="email" class="form-control" id="inputemail">
+            <input type="email" class="form-control" id="inputemail" name="useremail" required>
         </div>
     </div>
     <div class="form-group row">
         <label for="inputbirth" class="col-md-2 col-form-label text-set">生日:</label>
         <div class="col-md-4">
-            <input type="date" class="form-control" id="birth" name="birth" value="">
+            <input type="date" class="form-control" id="birth" name="birth" value="" name="userbirth">
         </div>
     </div>
     <div class="form-group row ">
         <label class="col-md-2 col-form-label text-set">性別:</label>
         <div class="col-md-6 d-flex align-items-center">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="gender-male" name="gender" class="custom-control-input" value="0">
+                <input required name="usergender" type="radio" id="gender-male" name="gender" class="custom-control-input" value="0">
                 <label class="custom-control-label" for="gender-male">男性</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="gender-female" name="gender" class="custom-control-input" value="1">
+                <input name="usergender" type="radio" id="gender-female" name="gender" class="custom-control-input" value="1">
                 <label class="custom-control-label" for="gender-female">女性</label>
             </div>
         </div>
@@ -54,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="form-group row">
         <label for="inputPassword3" class="col-2 col-form-label text-set">電話:</label>
         <div class="col-md-4">
-            <input type="number" class="form-control" id="inputPassword3">
+            <input type="number" class="form-control" id="inputPassword3" name="userphone" required>
         </div>
     </div>
     <div class="form-group row m-5">
