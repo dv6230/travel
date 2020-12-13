@@ -1,4 +1,5 @@
 <?php
+//產品資料更新 (顯示、刪除)
 
 //驗證
 session_start();
@@ -9,6 +10,8 @@ if (!($auth > 0)) {
     header("Location:profile_center.php");
 }
 
+
+//產品是否顯示
 if (isset($_POST['isshow']) && isset($_POST['product_id']) && $auth > 0) {
     $isshow = $_POST['isshow'];
     $product_id = $_POST['product_id'];
@@ -20,6 +23,8 @@ if (isset($_POST['isshow']) && isset($_POST['product_id']) && $auth > 0) {
     $statement->execute(array($isshow, $product_id));
 }
 
+
+//產品刪除
 if (isset($_POST['del'])) {
     require_once '../mydatabase.php';
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
