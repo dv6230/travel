@@ -10,7 +10,7 @@ if (isset($_SESSION['user_id'])) {
 
 <h2 class='mb-3'>個人資料</h2>
 
-<form action="profile_person.php" method="POST" class="mt-2 p-3 border rounded">
+<form action="update_user_data.php" method="POST" class="mt-2 p-3 border rounded">
     <div class="form-group row">
         <label for="inputname" class="col-md-2 col-form-label text-set">姓名:</label>
         <div class="col-md-4">
