@@ -1,5 +1,5 @@
 # 用 PHP 撰寫網站
-將此專案下載後，將此資料夾放入 xampp\htdocs 資料夾內；
+將此專案下載後，到 xampp\htdocs 建立 travel 資料夾，將此專案檔案放入此資料夾內；
 執行check_table.php 可先建立資料表 與 預設帳號
 
 
