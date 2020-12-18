@@ -15,8 +15,8 @@
 
 ### 最新消息
 所有公告皆會在此顯示，點擊連結可以看公告內容
-![image] https://github.com/dv6230/travel/blob/main/README%20image/news.png?raw=true
-![image] https://github.com/dv6230/travel/blob/main/README%20image/news_detail.png?raw=true
+![image]https://github.com/dv6230/travel/blob/main/README%20image/news.png?raw=true
+![image]https://github.com/dv6230/travel/blob/main/README%20image/news_detail.png?raw=true
 
 ### 產品簡介
 
