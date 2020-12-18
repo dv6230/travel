@@ -40,7 +40,10 @@
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_addnews.png?raw=true)
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_news_manage.png?raw=true)
 * 4:新增、修改、刪除產品 
+![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_add_product.png?raw=true)
+![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_product_manage.png)
 * 5.個人資料 : 新增修改個人資料
+![image](https://github.com/dv6230/travel/blob/main/README%20image/person.png)
 
 #### 普通會員
 
