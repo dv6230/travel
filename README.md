@@ -43,6 +43,7 @@
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_add_product.png?raw=true)
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_product_manage.png)
 * 5.個人資料 : 新增修改個人資料
+![image](https://github.com/dv6230/travel/blob/main/README%20image/person.png)
 
 #### 普通會員
 
