@@ -22,9 +22,11 @@
 
 #### 產品列表
 顯示所有產品，點擊詳細資訊可以查看更多內容
+![image](https://github.com/dv6230/travel/blob/main/README%20image/show_product.png?raw=true)
 
 #### 產品資訊
 從產品列表進入此介面，顯示此產品更多資訊，以及產品購買。
+![image](https://github.com/dv6230/travel/blob/main/README%20image/show_product_detail.png?raw=true)
 
 
 ### 會員中心
