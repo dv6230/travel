@@ -36,10 +36,10 @@
 * 1.消息通知 (未完成
 * 2.歷史紀錄 : 可以查看之前的交易紀錄
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/costom%20history.png?raw=true)
-* 3.新增、修改公告
+* 3.新增、修改、刪除公告
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_addnews.png?raw=true)
 ![image](https://github.com/dv6230/travel/blob/main/README%20image/profile_news_manage.png?raw=true)
-* 4:新增、修改產品 
+* 4:新增、修改、刪除產品 
 * 5.個人資料 : 新增修改個人資料
 
 #### 普通會員
