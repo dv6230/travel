@@ -29,6 +29,8 @@ $result = $query->fetchAll();
 <html lang="zh-Hant">
 
 <head>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,11 +57,13 @@ $result = $query->fetchAll();
             </li>
 
             <?php foreach ($result as $row) : ?>
-                <li class="list-group-item">
-                    <ul class="m-0 p-0">
+                <li class="list-group-item ">
+                    <ul class="m-0 p-0 d-flex flex-row align-items-center">
                         <li class="w-s1 d-inline-block font-weight-bold"><a href="news_detail.php?article=<?php echo $row['id'] ?>"><?php echo $row['title'] ?></a></li>
                         <li class="w-s2 d-inline-block font-weight-bold"><?php echo $row['insert_time'] ?></li>
-                        <li class="w-s3 d-inline-block font-weight-bold"><?php echo $row['theme'] ?></li>
+                        <li class="w-s3 d-inline-block font-weight-bold">
+                            <h4 class="badge theme-style m-0"><?php echo $row['theme'] ?></h4>                            
+                        </li>
                     </ul>
                 </li>
             <?php endforeach; ?>
@@ -111,9 +115,44 @@ $result = $query->fetchAll();
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.theme-style').each(function(index) {
+
+                if ($(this).text() == '焦點') {
+                    $(this).addClass('badge-warning');
+                } else if ($(this).text() == '新聞') {
+                    $(this).addClass('badge-success');
+                } else if ($(this).text() == '活動') {
+                    $(this).addClass('badge-primary');
+                } else if ($(this).text() == '介紹') {
+                    $(this).addClass('badge-info');
+                } else {
+                    $(this).addClass('badge-secondary');
+                }
+            });
+
+
+            /*      
+            if (theme == '焦點') {
+                $('.theme-style').addClass('badge-warning');
+            } else if (theme == '新聞') {
+                $('.theme-style').addClass('badge-success');
+            } else if (theme == '活動') {
+                $('.theme-style').addClass('badge-primary');
+            } else if (theme == '介紹') {
+                $('.theme-style').addClass('badge-info');
+            } else {
+                $('.theme-style').addClass('badge-secondary');
+
+            }
+            */
+        });
+    </script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ if (isset($_POST['acnt']) && isset($_POST['pwd'])) {
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT account FROM user WHERE account = $user_name";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
+    if (!$result > 0) {
         $name_error = true;
     } else {
         $sql = "INSERT INTO user (account,password) VALUES ($user_name,$user_password)";
