@@ -18,6 +18,8 @@ function querymysql($query)
     if (!$result) $str = '建立資料表失敗';
 }
 
+querymysql('CREATE DATABASE travel');
+
 create_table('transaction', "`id` int(11) NOT NULL AUTO_INCREMENT,
 `product_id` int(11) NOT NULL,
 `price` int(11) NOT NULL,
