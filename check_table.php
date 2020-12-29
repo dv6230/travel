@@ -2,6 +2,18 @@
 //初始化檔案，用於建立新資料庫結構
 require_once 'mydatabase.php';
 
+$conn = new mysqli($servername, $username, $password);
+$sql = 'CREATE DATABASE travel';
+// Create database
+$sql = "CREATE DATABASE myDB";
+if ($conn->query($sql) === TRUE) {
+    echo "成功建立資料庫";
+} else {
+    echo "建立資料庫失敗" . $conn->error;
+}
+$conn->close();
+
+
 $connection = new mysqli($servername, $username, $password, $dbname);
 
 $str = '成功建立資料表';
@@ -18,7 +30,7 @@ function querymysql($query)
     if (!$result) $str = '建立資料表失敗';
 }
 
-querymysql('CREATE DATABASE travel');
+
 
 create_table('transaction', "`id` int(11) NOT NULL AUTO_INCREMENT,
 `product_id` int(11) NOT NULL,
