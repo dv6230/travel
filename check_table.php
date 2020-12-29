@@ -4,12 +4,10 @@ require_once 'mydatabase.php';
 
 $conn = new mysqli($servername, $username, $password);
 $sql = 'CREATE DATABASE travel';
-// Create database
-$sql = "CREATE DATABASE myDB";
 if ($conn->query($sql) === TRUE) {
-    echo "成功建立資料庫";
+    echo "";
 } else {
-    echo "建立資料庫失敗" . $conn->error;
+    echo $conn->error;
 }
 $conn->close();
 
