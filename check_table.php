@@ -43,7 +43,7 @@ create_table('user', "`id` int(11) NOT NULL AUTO_INCREMENT,
 `password` varchar(256) NOT NULL,
 `auth` int(11) NOT NULL DEFAULT 0,
 PRIMARY KEY (`id`),
-KEY `account` (`account`)");
+KEY `account` (`account`),UNIQUE(`account`)");
 
 create_table('article', " `id` INT NOT NULL AUTO_INCREMENT , 
 `title` VARCHAR(125) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
@@ -70,7 +70,10 @@ create_table('user_detail', " `id` int(11) NOT NULL,
 PRIMARY KEY (`id`)");
 
 
+
+
 //預設 管理者帳號密碼 
-$result = $connection->query("INSERT IGNORE INTO `user` (`id`, `account`, `password`, `name`, `auth`) VALUES (NULL, 'root', 'root', '管理者', '2');");
+$result = $connection->query("INSERT IGNORE INTO `user` (`id`, `account`, `password`, `auth`) VALUES (NULL, 'root', 'root','2');");
+
 
 echo $str;

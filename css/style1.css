@@ -69,3 +69,9 @@ ul .w-s3 {
         color: orange;
     }
 }
+
+.bg-glass{
+    background-color: rgba(0, 0, 0, 0.7);   
+    color: white;
+    
+}
